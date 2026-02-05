@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 2 — Number Systems</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .concept-card { background: white; padding: 20px; border-left: 4px solid #10b981; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .diagram-box { background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; margin: 20px 0; border: 1px solid #e9ecef; }
+    .interactive-box { background: #e8f8f5; border: 2px dashed #10b981; padding: 20px; border-radius: 8px; margin: 20px 0; }
+    .bit-container { display: flex; justify-content: center; margin: 20px 0; flex-wrap: wrap; gap: 8px; }
+    .bit { width: 56px; height: 66px; border: 2px solid #333; text-align: center; line-height: 40px; font-size: 24px; cursor: pointer; background: white; border-radius: 4px; transition: all 0.2s; position: relative; }
+    .bit:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .bit.active { background: #10b981; color: white; border-color: #059669; }
+    .bit-label { font-size: 11px; position: absolute; bottom: -18px; width: 100%; text-align: center; color: #7f8c8d; }
+    .bit-val { font-weight: bold; }
+    .calc-display { font-size: 22px; text-align: center; font-family: monospace; color: #2c3e50; margin-top: 10px; }
+    .calc-row { display:flex; gap:10px; align-items:center; flex-wrap: wrap; }
+    .calc-row input, .calc-row select { padding:6px 8px; border:1px solid #ccc; border-radius:4px; }
+    .result-box { margin-top:10px; padding:10px; background:#f8f9fa; border:1px solid #e3e6e8; border-radius:6px; font-family: monospace; }
+    table { width:100%; border-collapse: collapse; margin:16px 0; }
+    th, td { border:1px solid #e3e6e8; padding:8px; text-align:center; }
+    th { background:#f1f5f9; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>CS Textbook</h2>
+    <ul>
+      <li><a href="index.html">Table of Contents</a></li>
+      <li><a href="chapter_0.html">Preface</a></li>
+      <li><a href="chapter_1.html">Chapter 1 — Introduction</a></li>
+      <li><a href="chapter_2.html" class="active">Chapter 2 — Number Systems</a></li>
+      <li><a href="chapter_3.html">Chapter 3 — Data Storage</a></li>
+      <li><a href="chapter_4.html">Chapter 4 — Operations on Data</a></li>
+      <li><a href="chapter_5.html">Chapter 5 — Computer Organization</a></li>
+      <li><a href="chapter_6.html">Chapter 6 — Computer Networks</a></li>
+      <li><a href="chapter_7.html">Chapter 7 — Operating Systems</a></li>
+      <li><a href="chapter_8.html">Chapter 8 — Algorithms</a></li>
+      <li><a href="chapter_9.html">Chapter 9 — Efficiency of Algorithms</a></li>
+      <li><a href="chapter_10.html">Chapter 10 — Programming Languages</a></li>
+      <li><a href="chapter_11.html">Chapter 11 — Software Engineering</a></li>
+      <li><a href="chapter_12.html">Chapter 12 — Data Structure</a></li>
+      <li><a href="chapter_13.html">Chapter 13 — Abstract Data Types</a></li>
+      <li><a href="chapter_14.html">Chapter 14 — File Structure</a></li>
+      <li><a href="chapter_15.html">Chapter 15 — Databases</a></li>
+      <li><a href="chapter_16.html">Chapter 16 — Data Compression</a></li>
+      <li><a href="chapter_17.html">Chapter 17 — Security</a></li>
+      <li><a href="chapter_18.html">Chapter 18 — Theory of Computation</a></li>
+      <li><a href="chapter_19.html">Chapter 19 — Computer Graphics</a></li>
+      <li><a href="chapter_20.html">Chapter 20 — Artificial Intelligence</a></li>
+      <li><a href="chapter_21.html">Chapter 21 — Introduction to Social Media</a></li>
+      <li><a href="chapter_22.html">Chapter 22 — Social and Ethical Issues</a></li>
+      <li><a href="chapter_23.html">Appendix A — Unicode</a></li>
+      <li><a href="chapter_24.html">Appendix B — Unified Modeling Language (UML)</a></li>
+      <li><a href="chapter_25.html">Appendix C — Pseudocode</a></li>
+      <li><a href="chapter_26.html">Appendix D — Structure Chart</a></li>
+      <li><a href="chapter_27.html">Appendix E — Boolean Algebra and Logic Circuits</a></li>
+      <li><a href="chapter_28.html">Appendix F — Examples of Programs</a></li>
+      <li><a href="chapter_29.html">Appendix G — Mathematical Review</a></li>
+      <li><a href="chapter_30.html">Appendix H — Error Detection and Correction</a></li>
+      <li><a href="chapter_31.html">Appendix I — Addition/Subtraction (Sign-and-Magnitude)</a></li>
+      <li><a href="chapter_32.html">Appendix J — Addition/Subtraction (Reals)</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Chapter 2 — Number Systems</h1>
+    <div class="navigation-top" style="display:flex; justify-content:space-between; margin-bottom:20px;">
+      <a href="chapter_1.html" class="btn">← Chapter 1</a>
+      <a href="chapter_3.html" class="btn">Chapter 3 →</a>
+    </div>
+
+    <div class="content-sections">
+      <h2 id="Introduction">Introduction</h2>
+      <div class="concept-card">
+        <p>A <strong>number system</strong> defines how numbers are represented using symbols and positional value. The same quantity can be written in different bases, e.g., <code>(2A)₁₆ = (42)₁₀</code>.</p>
+      </div>
+
+      <h2 id="Positional">Positional Number Systems</h2>
+      <div class="concept-card">
+        <ul>
+          <li><strong>Decimal (Base 10)</strong>: digits 0–9, powers of 10.</li>
+          <li><strong>Binary (Base 2)</strong>: digits 0–1, powers of 2.</li>
+          <li><strong>Octal (Base 8)</strong>: digits 0–7, powers of 8.</li>
+          <li><strong>Hex (Base 16)</strong>: digits 0–9 + A–F, powers of 16.</li>
+        </ul>
+      </div>
+
+      <h2 id="BinaryViz">Binary Visualization (8-bit)</h2>
+      <div class="interactive-box">
+        <p>Click bits to toggle (0/1). The decimal value updates instantly.</p>
+        <div class="bit-container" id="bits"></div>
+        <div class="calc-display">Value: <span id="dec-val">0</span></div>
+      </div>
+
+      <h2 id="Conversions">Base Conversion</h2>
+      <div class="concept-card">
+        <p>To convert between bases, you can use positional expansion or repeated division. For example:</p>
+        <p><code>(1101)₂ = 1×2³ + 1×2² + 0×2¹ + 1×2⁰ = 13</code></p>
+      </div>
+      <div class="interactive-box">
+        <h3>Interactive: Base Converter</h3>
+        <div class="calc-row">
+          <label>Input</label>
+          <input id="baseIn" value="2A" />
+          <label>From</label>
+          <select id="baseFrom">
+            <option value="2">2</option>
+            <option value="8">8</option>
+            <option value="10" selected>10</option>
+            <option value="16">16</option>
+          </select>
+          <label>To</label>
+          <select id="baseTo">
+            <option value="2" selected>2</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
+            <option value="16">16</option>
+          </select>
+          <button class="btn" onclick="convertBase()">Convert</button>
+        </div>
+        <div id="baseResult" class="result-box">Result: 101010</div>
+      </div>
+
+      <h2 id="HexBinary">Hex ↔ Binary Grouping</h2>
+      <div class="concept-card">
+        <p>Each hex digit equals 4 bits. This makes hex a compact view of binary.</p>
+        <table>
+          <tr><th>Hex</th><th>Binary</th><th>Hex</th><th>Binary</th></tr>
+          <tr><td>0</td><td>0000</td><td>8</td><td>1000</td></tr>
+          <tr><td>1</td><td>0001</td><td>9</td><td>1001</td></tr>
+          <tr><td>2</td><td>0010</td><td>A</td><td>1010</td></tr>
+          <tr><td>3</td><td>0011</td><td>B</td><td>1011</td></tr>
+          <tr><td>4</td><td>0100</td><td>C</td><td>1100</td></tr>
+          <tr><td>5</td><td>0101</td><td>D</td><td>1101</td></tr>
+          <tr><td>6</td><td>0110</td><td>E</td><td>1110</td></tr>
+          <tr><td>7</td><td>0111</td><td>F</td><td>1111</td></tr>
+        </table>
+      </div>
+
+      <h2 id="Signed">Signed Numbers (Two’s Complement)</h2>
+      <div class="concept-card">
+        <p>Two’s complement represents negative numbers by inverting bits and adding 1. For <em>n</em> bits:</p>
+        <p>Range: <code>−2^(n−1) … 2^(n−1) − 1</code></p>
+      </div>
+      <div class="interactive-box">
+        <h3>Interactive: Signed 8-bit Viewer</h3>
+        <div class="calc-row">
+          <label>Binary (8-bit)</label>
+          <input id="signedBits" value="11110110" />
+          <button class="btn" onclick="calcSigned()">Compute</button>
+        </div>
+        <div id="signedResult" class="result-box">Signed Value: -10</div>
+      </div>
+
+      <h2 id="EndChapter">End-Chapter Materials</h2>
+      <ul>
+        <li>Explain why hex is commonly used to display binary.</li>
+        <li>Convert <code>(101101)₂</code> to decimal and hex.</li>
+        <li>Find the 8-bit two’s complement of 23.</li>
+      </ul>
+
+      <h2 id="PracticeSet">Practice Set</h2>
+      <ol>
+        <li>Convert <code>(725)₈</code> to decimal.</li>
+        <li>Convert <code>(3F)₁₆</code> to binary.</li>
+        <li>What is the range of a 12-bit two’s complement integer?</li>
+      </ol>
+    </div>
+  </main>
+
+  <script>
+    // Binary visualizer
+    const bitContainer = document.getElementById('bits');
+    let bits = [0,0,0,0,0,0,0,0];
+
+    function renderBits() {
+      bitContainer.innerHTML = '';
+      bits.forEach((val, idx) => {
+        const power = 7 - idx;
+        const placeVal = Math.pow(2, power);
+        const el = document.createElement('div');
+        el.className = 'bit' + (val ? ' active' : '');
+        el.innerHTML = `<div class="bit-val">${val}</div><div class="bit-label">2<sup>${power}</sup><br>(${placeVal})</div>`;
+        el.onclick = () => { bits[idx] = bits[idx] ? 0 : 1; renderBits(); updateValue(); };
+        bitContainer.appendChild(el);
+      });
+    }
+
+    function updateValue() {
+      let total = 0;
+      bits.forEach((val, idx) => { const power = 7 - idx; if(val) total += Math.pow(2, power); });
+      document.getElementById('dec-val').innerText = total;
+    }
+
+    // Base converter
+    function convertBase(){
+      const input = (baseIn.value || '').trim();
+      const from = parseInt(baseFrom.value, 10);
+      const to = parseInt(baseTo.value, 10);
+      if(!input){ baseResult.innerText = 'Result: (empty)'; return; }
+      let num = parseInt(input, from);
+      if (Number.isNaN(num)) {
+        baseResult.innerText = 'Result: invalid input for base ' + from;
+        return;
+      }
+      baseResult.innerText = 'Result: ' + num.toString(to).toUpperCase();
+    }
+
+    // Signed (two's complement) 8-bit
+    function calcSigned(){
+      let s = (signedBits.value || '').trim();
+      s = s.replace(/[^01]/g, '');
+      if (s.length !== 8) {
+        signedResult.innerText = 'Signed Value: please enter 8 bits';
+        return;
+      }
+      const unsigned = parseInt(s, 2);
+      const signBit = s[0] === '1';
+      let value = unsigned;
+      if (signBit) value = unsigned - 256; // 2^8
+      signedResult.innerText = 'Signed Value: ' + value;
+    }
+
+    // init
+    renderBits(); updateValue(); convertBase(); calcSigned();
+  </script>
+</body>
+</html>

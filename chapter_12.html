@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 12 — Data Structure</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .concept-card { background: white; padding: 20px; border-left: 4px solid #6366f1; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .interactive-box { background: #eef2ff; border: 2px dashed #6366f1; padding: 20px; border-radius: 8px; margin: 20px 0; }
+    .calc-row { display:flex; gap:10px; align-items:center; flex-wrap: wrap; }
+    .calc-row input { padding:6px 8px; border:1px solid #ccc; border-radius:4px; }
+    .result-box { margin-top:10px; padding:10px; background:#f8f9fa; border:1px solid #e3e6e8; border-radius:6px; font-family: monospace; }
+    table { width:100%; border-collapse: collapse; margin:16px 0; }
+    th, td { border:1px solid #e3e6e8; padding:8px; text-align:left; }
+    th { background:#eef2ff; }
+    .stack { display:flex; gap:8px; flex-wrap: wrap; margin-top:10px; }
+    .stack-item { padding:8px 10px; border:1px solid #6366f1; border-radius:6px; background:#fff; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>CS Textbook</h2>
+    <ul>
+      <li><a href="index.html">Table of Contents</a></li>
+      <li><a href="chapter_0.html">Preface</a></li>
+      <li><a href="chapter_1.html">Chapter 1 — Introduction</a></li>
+      <li><a href="chapter_2.html">Chapter 2 — Number Systems</a></li>
+      <li><a href="chapter_3.html">Chapter 3 — Data Storage</a></li>
+      <li><a href="chapter_4.html">Chapter 4 — Operations on Data</a></li>
+      <li><a href="chapter_5.html">Chapter 5 — Computer Organization</a></li>
+      <li><a href="chapter_6.html">Chapter 6 — Computer Networks</a></li>
+      <li><a href="chapter_7.html">Chapter 7 — Operating Systems</a></li>
+      <li><a href="chapter_8.html">Chapter 8 — Algorithms</a></li>
+      <li><a href="chapter_9.html">Chapter 9 — Efficiency of Algorithms</a></li>
+      <li><a href="chapter_10.html">Chapter 10 — Programming Languages</a></li>
+      <li><a href="chapter_11.html">Chapter 11 — Software Engineering</a></li>
+      <li><a href="chapter_12.html" class="active">Chapter 12 — Data Structure</a></li>
+      <li><a href="chapter_13.html">Chapter 13 — Abstract Data Types</a></li>
+      <li><a href="chapter_14.html">Chapter 14 — File Structure</a></li>
+      <li><a href="chapter_15.html">Chapter 15 — Databases</a></li>
+      <li><a href="chapter_16.html">Chapter 16 — Data Compression</a></li>
+      <li><a href="chapter_17.html">Chapter 17 — Security</a></li>
+      <li><a href="chapter_18.html">Chapter 18 — Theory of Computation</a></li>
+      <li><a href="chapter_19.html">Chapter 19 — Computer Graphics</a></li>
+      <li><a href="chapter_20.html">Chapter 20 — Artificial Intelligence</a></li>
+      <li><a href="chapter_21.html">Chapter 21 — Introduction to Social Media</a></li>
+      <li><a href="chapter_22.html">Chapter 22 — Social and Ethical Issues</a></li>
+      <li><a href="chapter_23.html">Appendix A — Unicode</a></li>
+      <li><a href="chapter_24.html">Appendix B — Unified Modeling Language (UML)</a></li>
+      <li><a href="chapter_25.html">Appendix C — Pseudocode</a></li>
+      <li><a href="chapter_26.html">Appendix D — Structure Chart</a></li>
+      <li><a href="chapter_27.html">Appendix E — Boolean Algebra and Logic Circuits</a></li>
+      <li><a href="chapter_28.html">Appendix F — Examples of Programs</a></li>
+      <li><a href="chapter_29.html">Appendix G — Mathematical Review</a></li>
+      <li><a href="chapter_30.html">Appendix H — Error Detection and Correction</a></li>
+      <li><a href="chapter_31.html">Appendix I — Addition/Subtraction (Sign-and-Magnitude)</a></li>
+      <li><a href="chapter_32.html">Appendix J — Addition/Subtraction (Reals)</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Chapter 12 — Data Structure</h1>
+    <div class="navigation-top" style="display:flex; justify-content:space-between; margin-bottom:20px;">
+      <a href="chapter_11.html" class="btn">← Chapter 11</a>
+      <a href="chapter_13.html" class="btn">Chapter 13 →</a>
+    </div>
+
+    <div class="content-sections">
+      <h2 id="Overview">Why Data Structures?</h2>
+      <div class="concept-card">
+        <p>Data structures organize data so that operations (search, insert, delete) are efficient. The choice affects performance and memory usage.</p>
+      </div>
+
+      <h2 id="Linear">Linear Structures</h2>
+      <div class="concept-card">
+        <ul>
+          <li><strong>Array</strong>: fast indexed access, fixed size.</li>
+          <li><strong>Linked list</strong>: dynamic size, slower random access.</li>
+          <li><strong>Stack</strong> (LIFO): push/pop at top.</li>
+          <li><strong>Queue</strong> (FIFO): enqueue/dequeue.</li>
+        </ul>
+      </div>
+
+      <h2 id="TreesGraphs">Trees & Graphs</h2>
+      <div class="concept-card">
+        <p><strong>Tree</strong> is hierarchical (binary search trees, heaps). <strong>Graph</strong> models networks with vertices and edges.</p>
+      </div>
+
+      <h2 id="Complexities">Time Complexity (Typical)</h2>
+      <table>
+        <tr><th>Structure</th><th>Search</th><th>Insert</th><th>Delete</th></tr>
+        <tr><td>Array (unsorted)</td><td>O(n)</td><td>O(1)</td><td>O(n)</td></tr>
+        <tr><td>Linked List</td><td>O(n)</td><td>O(1)</td><td>O(1)</td></tr>
+        <tr><td>BST (balanced)</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td></tr>
+        <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td></tr>
+      </table>
+
+      <h2 id="Interactive">Interactive: Stack Simulator</h2>
+      <div class="interactive-box">
+        <div class="calc-row">
+          <label>Value</label><input id="stackVal" value="A" />
+          <button class="btn" onclick="pushStack()">Push</button>
+          <button class="btn" onclick="popStack()">Pop</button>
+          <button class="btn" onclick="peekStack()">Peek</button>
+        </div>
+        <div id="stackMsg" class="result-box">Stack: []</div>
+        <div class="stack" id="stackView"></div>
+      </div>
+
+      <h2 id="EndChapter">End‑Chapter Materials</h2>
+      <ul>
+        <li>When would you choose a linked list over an array?</li>
+        <li>Explain the difference between a tree and a graph.</li>
+        <li>Why can hash tables provide average O(1) search?</li>
+      </ul>
+
+      <h2 id="PracticeSet">Practice Set</h2>
+      <ol>
+        <li>Show the stack after pushing A, B, C and popping once.</li>
+        <li>Which structure is best for BFS traversal: stack or queue?</li>
+        <li>What is the worst‑case search time for a BST?</li>
+      </ol>
+    </div>
+  </main>
+
+  <script>
+    const stack = [];
+
+    function renderStack(){
+      const view = document.getElementById('stackView');
+      view.innerHTML = '';
+      stack.slice().reverse().forEach((v) => {
+        const el = document.createElement('div');
+        el.className = 'stack-item';
+        el.textContent = v;
+        view.appendChild(el);
+      });
+      document.getElementById('stackMsg').innerText = `Stack: [${stack.join(', ')}]`;
+    }
+
+    function pushStack(){
+      const v = stackVal.value || '';
+      if(!v){ return; }
+      stack.push(v);
+      renderStack();
+    }
+
+    function popStack(){
+      stack.pop();
+      renderStack();
+    }
+
+    function peekStack(){
+      const top = stack.length ? stack[stack.length-1] : '(empty)';
+      document.getElementById('stackMsg').innerText = `Top: ${top} | Stack: [${stack.join(', ')}]`;
+    }
+
+    renderStack();
+  </script>
+</body>
+</html>

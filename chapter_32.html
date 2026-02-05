@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appendix J — Addition/Subtraction (Reals)</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .concept-card { background: white; padding: 20px; border-left: 4px solid #0891b2; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .interactive-box { background: #cffafe; border: 2px dashed #0891b2; padding: 20px; border-radius: 8px; margin: 20px 0; }
+    .calc-row { display:flex; gap:10px; align-items:center; flex-wrap: wrap; }
+    .calc-row input { padding:6px 8px; border:1px solid #ccc; border-radius:4px; }
+    .result-box { margin-top:10px; padding:10px; background:#fff; border:1px solid #e3e6e8; border-radius:6px; font-family: monospace; }
+    table { width:100%; border-collapse: collapse; margin:16px 0; }
+    th, td { border:1px solid #e3e6e8; padding:8px; text-align:left; }
+    th { background:#cffafe; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>CS Textbook</h2>
+    <ul>
+      <li><a href="index.html">Table of Contents</a></li>
+      <li><a href="chapter_0.html">Preface</a></li>
+      <li><a href="chapter_1.html">Chapter 1 — Introduction</a></li>
+      <li><a href="chapter_2.html">Chapter 2 — Number Systems</a></li>
+      <li><a href="chapter_3.html">Chapter 3 — Data Storage</a></li>
+      <li><a href="chapter_4.html">Chapter 4 — Operations on Data</a></li>
+      <li><a href="chapter_5.html">Chapter 5 — Computer Organization</a></li>
+      <li><a href="chapter_6.html">Chapter 6 — Computer Networks</a></li>
+      <li><a href="chapter_7.html">Chapter 7 — Operating Systems</a></li>
+      <li><a href="chapter_8.html">Chapter 8 — Algorithms</a></li>
+      <li><a href="chapter_9.html">Chapter 9 — Efficiency of Algorithms</a></li>
+      <li><a href="chapter_10.html">Chapter 10 — Programming Languages</a></li>
+      <li><a href="chapter_11.html">Chapter 11 — Software Engineering</a></li>
+      <li><a href="chapter_12.html">Chapter 12 — Data Structure</a></li>
+      <li><a href="chapter_13.html">Chapter 13 — Abstract Data Types</a></li>
+      <li><a href="chapter_14.html">Chapter 14 — File Structure</a></li>
+      <li><a href="chapter_15.html">Chapter 15 — Databases</a></li>
+      <li><a href="chapter_16.html">Chapter 16 — Data Compression</a></li>
+      <li><a href="chapter_17.html">Chapter 17 — Security</a></li>
+      <li><a href="chapter_18.html">Chapter 18 — Theory of Computation</a></li>
+      <li><a href="chapter_19.html">Chapter 19 — Computer Graphics</a></li>
+      <li><a href="chapter_20.html">Chapter 20 — Artificial Intelligence</a></li>
+      <li><a href="chapter_21.html">Chapter 21 — Introduction to Social Media</a></li>
+      <li><a href="chapter_22.html">Chapter 22 — Social and Ethical Issues</a></li>
+      <li><a href="chapter_23.html">Appendix A — Unicode</a></li>
+      <li><a href="chapter_24.html">Appendix B — Unified Modeling Language (UML)</a></li>
+      <li><a href="chapter_25.html">Appendix C — Pseudocode</a></li>
+      <li><a href="chapter_26.html">Appendix D — Structure Chart</a></li>
+      <li><a href="chapter_27.html">Appendix E — Boolean Algebra and Logic Circuits</a></li>
+      <li><a href="chapter_28.html">Appendix F — Examples of Programs</a></li>
+      <li><a href="chapter_29.html">Appendix G — Mathematical Review</a></li>
+      <li><a href="chapter_30.html">Appendix H — Error Detection and Correction</a></li>
+      <li><a href="chapter_31.html">Appendix I — Addition/Subtraction (Sign-and-Magnitude)</a></li>
+      <li><a href="chapter_32.html" class="active">Appendix J — Addition/Subtraction (Reals)</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Appendix J — Addition/Subtraction (Reals)</h1>
+    <div class="navigation-top" style="display:flex; justify-content:space-between; margin-bottom:20px;">
+      <a href="chapter_31.html" class="btn">← Appendix I</a>
+      <a href="index.html" class="btn">Back to TOC</a>
+    </div>
+
+    <div class="content-sections">
+      <h2 id="IEEE754">IEEE 754 Floating‑Point</h2>
+      <div class="concept-card">
+        <p>Floating‑point numbers use three fields: <strong>sign</strong>, <strong>exponent</strong>, <strong>mantissa</strong>.</p>
+        <table>
+          <tr><th>Format</th><th>Sign</th><th>Exponent</th><th>Mantissa</th></tr>
+          <tr><td>Single (32‑bit)</td><td>1</td><td>8</td><td>23</td></tr>
+          <tr><td>Double (64‑bit)</td><td>1</td><td>11</td><td>52</td></tr>
+        </table>
+      </div>
+
+      <h2 id="Addition">Floating‑Point Addition</h2>
+      <div class="concept-card">
+        <p>Steps:</p>
+        <ol>
+          <li>Align exponents (shift smaller mantissa).</li>
+          <li>Add mantissas.</li>
+          <li>Normalize result.</li>
+          <li>Round and check for overflow/underflow.</li>
+        </ol>
+      </div>
+
+      <h2 id="Interactive">Interactive: Float Add (Simplified)</h2>
+      <div class="interactive-box">
+        <div class="calc-row">
+          <label>A</label><input id="floatA" type="number" value="3.75" step="0.01" />
+          <label>B</label><input id="floatB" type="number" value="2.5" step="0.01" />
+          <button class="btn" onclick="calcFloat()">Compute</button>
+        </div>
+        <div id="floatResult" class="result-box">Result: 6.25</div>
+      </div>
+
+      <h2 id="Precision">Precision & Rounding</h2>
+      <div class="concept-card">
+        <p>Limited mantissa bits cause rounding errors. Example: 0.1 + 0.2 ≠ 0.3 exactly in binary floating‑point.</p>
+      </div>
+
+      <h2 id="PracticeSet">Practice Set</h2>
+      <ol>
+        <li>Why must exponents be aligned before adding floats?</li>
+        <li>What is denormalized representation used for?</li>
+        <li>Give an example where rounding causes error accumulation.</li>
+      </ol>
+    </div>
+  </main>
+
+  <script>
+    function calcFloat(){
+      const a = parseFloat(floatA.value||'0');
+      const b = parseFloat(floatB.value||'0');
+      const sum = a + b;
+      floatResult.innerText = `Result: ${sum}`;
+    }
+    calcFloat();
+  </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: Introduction</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .concept-card { background: white; padding: 20px; border-left: 4px solid #3498db; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .diagram-box { background: #f8f9fa; padding: 30px; border-radius: 8px; text-align: center; margin: 20px 0; border: 1px solid #e9ecef; }
+        .key-term { font-weight: bold; color: #2c3e50; background: #e8f6f3; padding: 2px 5px; border-radius: 3px; }
+        .interactive-demo { border: 2px dashed #1abc9c; padding: 20px; background: #e8f8f5; border-radius: 8px; margin-top: 20px; }
+        .tape-cell { display: inline-block; width: 40px; height: 40px; border: 1px solid #333; line-height: 40px; text-align: center; background: white; margin: 0 2px; }
+        .head-marker { font-size: 24px; color: #e74c3c; display: block; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>CS Textbook</h2>
+        <ul>
+            <li><a href="index.html">Table of Contents</a></li>
+            <li><a href="chapter_0.html">Preface</a></li>
+            <li><a href="chapter_1.html" class="active">Chapter 1: Introduction</a></li>
+            <li><a href="chapter_2.html">Chapter 2: Number Systems</a></li>
+            <!-- ... links would continue ... -->
+        </ul>
+    </nav>
+    <main>
+        <h1>Chapter 1: Introduction</h1>
+        <div class="navigation-top" style="display:flex; justify-content:space-between; margin-bottom:20px;">
+            <a href="chapter_0.html" class="btn">← Preface</a>
+            <a href="chapter_2.html" class="btn">Chapter 2 →</a>
+        </div>
+        
+        <div class="content-sections">
+            <h2 id="TuringModel">The Turing Model</h2>
+            <div class="concept-card">
+                <p>The <strong>Turing Model</strong>, proposed by Alan Turing in 1936, provides a theoretical definition of a computer. Before Turing, a "computer" was a person who calculated. Turing defined a machine that could perform any calculation that a human could, given enough time and paper.</p>
+                <p>A Turing Machine consists of:</p>
+                <ul>
+                    <li>A <strong>Tape</strong>: Infinite length, divided into cells, each containing a symbol.</li>
+                    <li>A <strong>Head</strong>: Can read, write, and move left or right.</li>
+                    <li>A <strong>State Register</strong>: Stores the current state of the machine.</li>
+                    <li>A <strong>Table of Instructions</strong>: Tells the machine what to do based on the current state and symbol.</li>
+                </ul>
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Interactive: Simple Turing Machine Simulator</h3>
+                <p>Task: Invert bits (0&rarr;1, 1&rarr;0). Click "Step" to execute.</p>
+                <div class="diagram-box">
+                    <div id="tape-container">
+                        <div class="tape-cell" id="c0">0</div>
+                        <div class="tape-cell" id="c1">1</div>
+                        <div class="tape-cell" id="c2">0</div>
+                        <div class="tape-cell" id="c3">1</div>
+                        <div class="tape-cell" id="c4">0</div>
+                    </div>
+                    <div id="head-pointer" style="margin-left: 12px;">▲ HEAD</div>
+                    <p>Current State: <span id="state-display" style="font-weight:bold; color:#e74c3c;">START</span></p>
+                </div>
+                <button class="btn" onclick="stepTuring()">Step</button>
+                <button class="btn" style="background:#95a5a6;" onclick="resetTuring()">Reset</button>
+                <script>
+                    let headPos = 0;
+                    const tapeLength = 5;
+                    function stepTuring() {
+                        if(headPos >= tapeLength) { alert("Halted!"); return; }
+                        
+                        const cell = document.getElementById('c' + headPos);
+                        const val = cell.innerText;
+                        
+                        // Rule: Flip bit and move right
+                        cell.innerText = val === '0' ? '1' : '0';
+                        cell.style.backgroundColor = '#f1c40f'; // Highlight change
+                        
+                        headPos++;
+                        updateHead();
+                    }
+                    function updateHead() {
+                        const ptr = document.getElementById('head-pointer');
+                        ptr.style.marginLeft = (12 + (headPos * 48)) + 'px'; // 40 width + 4 margin + 4 padding approx
+                    }
+                    function resetTuring() {
+                        headPos = 0;
+                        document.getElementById('c0').innerText = '0';
+                        document.getElementById('c1').innerText = '1';
+                        document.getElementById('c2').innerText = '0';
+                        document.getElementById('c3').innerText = '1';
+                        document.getElementById('c4').innerText = '0';
+                         for(let i=0; i<5; i++) document.getElementById('c'+i).style.backgroundColor = 'white';
+                        updateHead();
+                    }
+                </script>
+            </div>
+
+            <h2 id="VonNeumannModel">The Von Neumann Model</h2>
+            <p>While the Turing model describes <em>what</em> can be computed, the <strong>Von Neumann model</strong> (1945) describes <em>how</em> to build a practical computer. It is based on the stored-program concept.</p>
+            
+            <div class="diagram-box">
+                <svg width="600" height="300" viewBox="0 0 600 300">
+                    <!-- Memory -->
+                    <rect x="50" y="50" width="100" height="200" fill="#ecf0f1" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="100" y="150" text-anchor="middle">Memory</text>
+                    
+                    <!-- CPU -->
+                    <rect x="250" y="50" width="200" height="200" fill="#d5dbdb" stroke="#2c3e50" stroke-width="2" stroke-dasharray="5,5"/>
+                    <text x="350" y="75" text-anchor="middle" font-weight="bold">CPU</text>
+                    
+                    <!-- ALU -->
+                    <rect x="270" y="90" width="160" height="60" fill="#aed6f1" stroke="#2980b9" stroke-width="2"/>
+                    <text x="350" y="125" text-anchor="middle">ALU (Logic)</text>
+                    
+                    <!-- Control Unit -->
+                    <rect x="270" y="170" width="160" height="60" fill="#f9e79f" stroke="#f39c12" stroke-width="2"/>
+                    <text x="350" y="205" text-anchor="middle">Control Unit</text>
+                    
+                    <!-- I/O -->
+                    <rect x="500" y="100" width="80" height="100" fill="#abebc6" stroke="#27ae60" stroke-width="2"/>
+                    <text x="540" y="150" text-anchor="middle">I/O</text>
+                    
+                    <!-- Bus Lines -->
+                    <line x1="150" y1="120" x2="270" y2="120" stroke="#333" stroke-width="4"/> <!-- Data Bus -->
+                    <line x1="150" y1="200" x2="270" y2="200" stroke="#333" stroke-width="4"/> <!-- Control Bus -->
+                    <line x1="450" y1="150" x2="500" y2="150" stroke="#333" stroke-width="4"/>
+                </svg>
+                <p><em>Figure 1.2: Von Neumann Architecture Components</em></p>
+            </div>
+
+            <h2 id="ComputerComponents">Computer Components</h2>
+            <p>Modern computers are built from three main subsystems:</p>
+            <ol>
+                <li><strong>Hardware</strong>: The physical equipment (chips, wires, screens).</li>
+                <li><strong>Software</strong>: The programs and data (OS, Apps).</li>
+                <li><strong>Data</strong>: The raw facts and figures managed by the software.</li>
+            </ol>
+
+            <h2 id="History">History</h2>
+            <table border="1" style="width:100%; border-collapse:collapse; margin:20px 0;">
+                <tr style="background:#2c3e50; color:white;">
+                    <th>Generation</th>
+                    <th>Approx. Dates</th>
+                    <th>Technology</th>
+                    <th>Example</th>
+                </tr>
+                <tr><td>1st</td><td>1950-1959</td><td>Vacuum Tubes</td><td>ENIAC, EDVAC</td></tr>
+                <tr><td>2nd</td><td>1959-1965</td><td>Transistors</td><td>IBM 7094</td></tr>
+                <tr><td>3rd</td><td>1965-1975</td><td>Integrated Circuits (IC)</td><td>IBM 360</td></tr>
+                <tr><td>4th</td><td>1975-1985</td><td>VLSI (Microprocessors)</td><td>Apple II, PC</td></tr>
+                <tr><td>5th</td><td>1985-Present</td><td>Parallel Processing / AI</td><td>Supercomputers</td></tr>
+            </table>
+            
+            <h2 id="SocialandEthicalIssues">Social and Ethical Issues</h2>
+            <p>As computers become ubiquitous, we face new challenges:</p>
+            <ul>
+                <li><strong>Privacy</strong>: Data collection vs. personal rights.</li>
+                <li><strong>Security</strong>: Hacking, malware, and cyberwarfare.</li>
+                <li><strong>Digital Divide</strong>: Gap between those with access to tech and those without.</li>
+            </ul>
+
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,16 @@
+
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; display: flex; height: 100vh; background-color: #f4f4f9; }
+nav { width: 300px; background: #2c3e50; color: white; padding: 20px; overflow-y: auto; flex-shrink: 0; }
+nav h2 { font-size: 1.2rem; border-bottom: 1px solid #34495e; padding-bottom: 10px; margin-bottom: 20px; }
+nav ul { list-style: none; padding: 0; }
+nav li { margin-bottom: 10px; }
+nav a { color: #bdc3c7; text-decoration: none; display: block; padding: 5px; border-radius: 4px; }
+nav a:hover { background: #34495e; color: white; }
+nav a.active { background: #1abc9c; color: white; }
+main { flex-grow: 1; padding: 40px; overflow-y: auto; background: white; box-shadow: -2px 0 5px rgba(0,0,0,0.05); }
+h1 { color: #2c3e50; border-bottom: 2px solid #1abc9c; padding-bottom: 10px; }
+h2 { color: #34495e; margin-top: 30px; }
+.interactive-box { border: 2px dashed #1abc9c; padding: 20px; margin: 20px 0; background: #e8f8f5; border-radius: 8px; }
+.btn { background: #1abc9c; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; font-size: 1rem; }
+.btn:hover { background: #16a085; }
+.diagram { text-align: center; margin: 20px 0; }

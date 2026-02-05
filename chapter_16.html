@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 16 — Data Compression</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .concept-card { background: white; padding: 20px; border-left: 4px solid #f97316; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .interactive-box { background: #fff7ed; border: 2px dashed #f97316; padding: 20px; border-radius: 8px; margin: 20px 0; }
+    .calc-row { display:flex; gap:10px; align-items:center; flex-wrap: wrap; }
+    .calc-row input, .calc-row select { padding:6px 8px; border:1px solid #ccc; border-radius:4px; }
+    .result-box { margin-top:10px; padding:10px; background:#f8f9fa; border:1px solid #e3e6e8; border-radius:6px; font-family: monospace; }
+    table { width:100%; border-collapse: collapse; margin:16px 0; }
+    th, td { border:1px solid #e3e6e8; padding:8px; text-align:left; }
+    th { background:#ffedd5; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>CS Textbook</h2>
+    <ul>
+      <li><a href="index.html">Table of Contents</a></li>
+      <li><a href="chapter_0.html">Preface</a></li>
+      <li><a href="chapter_1.html">Chapter 1 — Introduction</a></li>
+      <li><a href="chapter_2.html">Chapter 2 — Number Systems</a></li>
+      <li><a href="chapter_3.html">Chapter 3 — Data Storage</a></li>
+      <li><a href="chapter_4.html">Chapter 4 — Operations on Data</a></li>
+      <li><a href="chapter_5.html">Chapter 5 — Computer Organization</a></li>
+      <li><a href="chapter_6.html">Chapter 6 — Computer Networks</a></li>
+      <li><a href="chapter_7.html">Chapter 7 — Operating Systems</a></li>
+      <li><a href="chapter_8.html">Chapter 8 — Algorithms</a></li>
+      <li><a href="chapter_9.html">Chapter 9 — Efficiency of Algorithms</a></li>
+      <li><a href="chapter_10.html">Chapter 10 — Programming Languages</a></li>
+      <li><a href="chapter_11.html">Chapter 11 — Software Engineering</a></li>
+      <li><a href="chapter_12.html">Chapter 12 — Data Structure</a></li>
+      <li><a href="chapter_13.html">Chapter 13 — Abstract Data Types</a></li>
+      <li><a href="chapter_14.html">Chapter 14 — File Structure</a></li>
+      <li><a href="chapter_15.html">Chapter 15 — Databases</a></li>
+      <li><a href="chapter_16.html" class="active">Chapter 16 — Data Compression</a></li>
+      <li><a href="chapter_17.html">Chapter 17 — Security</a></li>
+      <li><a href="chapter_18.html">Chapter 18 — Theory of Computation</a></li>
+      <li><a href="chapter_19.html">Chapter 19 — Computer Graphics</a></li>
+      <li><a href="chapter_20.html">Chapter 20 — Artificial Intelligence</a></li>
+      <li><a href="chapter_21.html">Chapter 21 — Introduction to Social Media</a></li>
+      <li><a href="chapter_22.html">Chapter 22 — Social and Ethical Issues</a></li>
+      <li><a href="chapter_23.html">Appendix A — Unicode</a></li>
+      <li><a href="chapter_24.html">Appendix B — Unified Modeling Language (UML)</a></li>
+      <li><a href="chapter_25.html">Appendix C — Pseudocode</a></li>
+      <li><a href="chapter_26.html">Appendix D — Structure Chart</a></li>
+      <li><a href="chapter_27.html">Appendix E — Boolean Algebra and Logic Circuits</a></li>
+      <li><a href="chapter_28.html">Appendix F — Examples of Programs</a></li>
+      <li><a href="chapter_29.html">Appendix G — Mathematical Review</a></li>
+      <li><a href="chapter_30.html">Appendix H — Error Detection and Correction</a></li>
+      <li><a href="chapter_31.html">Appendix I — Addition/Subtraction (Sign-and-Magnitude)</a></li>
+      <li><a href="chapter_32.html">Appendix J — Addition/Subtraction (Reals)</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Chapter 16 — Data Compression</h1>
+    <div class="navigation-top" style="display:flex; justify-content:space-between; margin-bottom:20px;">
+      <a href="chapter_15.html" class="btn">← Chapter 15</a>
+      <a href="chapter_17.html" class="btn">Chapter 17 →</a>
+    </div>
+
+    <div class="content-sections">
+      <h2 id="Basics">Compression Basics</h2>
+      <div class="concept-card">
+        <p>Compression reduces storage or transmission cost by encoding data more efficiently.</p>
+        <ul>
+          <li><strong>Lossless</strong>: original data fully recoverable (ZIP, PNG).</li>
+          <li><strong>Lossy</strong>: discards some detail (JPEG, MP3).</li>
+        </ul>
+      </div>
+
+      <h2 id="Methods">Common Methods</h2>
+      <div class="concept-card">
+        <table>
+          <tr><th>Method</th><th>Type</th><th>Idea</th></tr>
+          <tr><td>Huffman</td><td>Lossless</td><td>Short codes for frequent symbols</td></tr>
+          <tr><td>LZW</td><td>Lossless</td><td>Dictionary of repeated patterns</td></tr>
+          <tr><td>JPEG</td><td>Lossy</td><td>Frequency transform + quantization</td></tr>
+          <tr><td>MP3</td><td>Lossy</td><td>Psychoacoustic modeling</td></tr>
+        </table>
+      </div>
+
+      <h2 id="Ratio">Compression Ratio</h2>
+      <div class="interactive-box">
+        <h3>Interactive: Ratio & Savings</h3>
+        <div class="calc-row">
+          <label>Original (MB)</label><input id="orig" type="number" value="100" />
+          <label>Compressed (MB)</label><input id="comp" type="number" value="25" />
+          <button class="btn" onclick="calcRatio()">Compute</button>
+        </div>
+        <div id="ratioResult" class="result-box">Ratio: 4.00×, Savings: 75%</div>
+      </div>
+
+      <h2 id="EndChapter">End‑Chapter Materials</h2>
+      <ul>
+        <li>Why is lossless compression required for text?</li>
+        <li>How does Huffman coding exploit frequency?</li>
+        <li>Give an example of lossy compression in daily life.</li>
+      </ul>
+
+      <h2 id="PracticeSet">Practice Set</h2>
+      <ol>
+        <li>A 200 MB file compresses to 50 MB. What is the ratio?</li>
+        <li>Why does MP3 remove data without obvious quality loss?</li>
+        <li>Name two lossless compression algorithms.</li>
+      </ol>
+    </div>
+  </main>
+
+  <script>
+    function calcRatio(){
+      const o = Math.max(0.0001, parseFloat(orig.value||'1'));
+      const c = Math.max(0.0001, parseFloat(comp.value||'1'));
+      const ratio = o / c;
+      const savings = (1 - c/o) * 100;
+      ratioResult.innerText = `Ratio: ${ratio.toFixed(2)}×, Savings: ${savings.toFixed(1)}%`;
+    }
+    calcRatio();
+  </script>
+</body>
+</html>

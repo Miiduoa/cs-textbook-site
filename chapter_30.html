@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appendix H — Error Detection and Correction</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .concept-card { background: white; padding: 20px; border-left: 4px solid #d97706; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .interactive-box { background: #fef3c7; border: 2px dashed #d97706; padding: 20px; border-radius: 8px; margin: 20px 0; }
+    .calc-row { display:flex; gap:10px; align-items:center; flex-wrap: wrap; }
+    .calc-row input { padding:6px 8px; border:1px solid #ccc; border-radius:4px; }
+    .result-box { margin-top:10px; padding:10px; background:#fff; border:1px solid #e3e6e8; border-radius:6px; font-family: monospace; }
+    table { width:100%; border-collapse: collapse; margin:16px 0; }
+    th, td { border:1px solid #e3e6e8; padding:8px; text-align:left; }
+    th { background:#fef3c7; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>CS Textbook</h2>
+    <ul>
+      <li><a href="index.html">Table of Contents</a></li>
+      <li><a href="chapter_0.html">Preface</a></li>
+      <li><a href="chapter_1.html">Chapter 1 — Introduction</a></li>
+      <li><a href="chapter_2.html">Chapter 2 — Number Systems</a></li>
+      <li><a href="chapter_3.html">Chapter 3 — Data Storage</a></li>
+      <li><a href="chapter_4.html">Chapter 4 — Operations on Data</a></li>
+      <li><a href="chapter_5.html">Chapter 5 — Computer Organization</a></li>
+      <li><a href="chapter_6.html">Chapter 6 — Computer Networks</a></li>
+      <li><a href="chapter_7.html">Chapter 7 — Operating Systems</a></li>
+      <li><a href="chapter_8.html">Chapter 8 — Algorithms</a></li>
+      <li><a href="chapter_9.html">Chapter 9 — Efficiency of Algorithms</a></li>
+      <li><a href="chapter_10.html">Chapter 10 — Programming Languages</a></li>
+      <li><a href="chapter_11.html">Chapter 11 — Software Engineering</a></li>
+      <li><a href="chapter_12.html">Chapter 12 — Data Structure</a></li>
+      <li><a href="chapter_13.html">Chapter 13 — Abstract Data Types</a></li>
+      <li><a href="chapter_14.html">Chapter 14 — File Structure</a></li>
+      <li><a href="chapter_15.html">Chapter 15 — Databases</a></li>
+      <li><a href="chapter_16.html">Chapter 16 — Data Compression</a></li>
+      <li><a href="chapter_17.html">Chapter 17 — Security</a></li>
+      <li><a href="chapter_18.html">Chapter 18 — Theory of Computation</a></li>
+      <li><a href="chapter_19.html">Chapter 19 — Computer Graphics</a></li>
+      <li><a href="chapter_20.html">Chapter 20 — Artificial Intelligence</a></li>
+      <li><a href="chapter_21.html">Chapter 21 — Introduction to Social Media</a></li>
+      <li><a href="chapter_22.html">Chapter 22 — Social and Ethical Issues</a></li>
+      <li><a href="chapter_23.html">Appendix A — Unicode</a></li>
+      <li><a href="chapter_24.html">Appendix B — Unified Modeling Language (UML)</a></li>
+      <li><a href="chapter_25.html">Appendix C — Pseudocode</a></li>
+      <li><a href="chapter_26.html">Appendix D — Structure Chart</a></li>
+      <li><a href="chapter_27.html">Appendix E — Boolean Algebra and Logic Circuits</a></li>
+      <li><a href="chapter_28.html">Appendix F — Examples of Programs</a></li>
+      <li><a href="chapter_29.html">Appendix G — Mathematical Review</a></li>
+      <li><a href="chapter_30.html" class="active">Appendix H — Error Detection and Correction</a></li>
+      <li><a href="chapter_31.html">Appendix I — Addition/Subtraction (Sign-and-Magnitude)</a></li>
+      <li><a href="chapter_32.html">Appendix J — Addition/Subtraction (Reals)</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Appendix H — Error Detection and Correction</h1>
+    <div class="navigation-top" style="display:flex; justify-content:space-between; margin-bottom:20px;">
+      <a href="chapter_29.html" class="btn">← Appendix G</a>
+      <a href="chapter_31.html" class="btn">Appendix I →</a>
+    </div>
+
+    <div class="content-sections">
+      <h2 id="Parity">Parity Bit</h2>
+      <div class="concept-card">
+        <p>A single bit added to make the total number of 1s even (even parity) or odd (odd parity). Detects single‑bit errors but cannot correct them.</p>
+      </div>
+
+      <h2 id="Checksum">Checksum</h2>
+      <div class="concept-card">
+        <p>Sum all data bytes; the receiver recalculates and compares. Simple but limited error coverage.</p>
+      </div>
+
+      <h2 id="CRC">Cyclic Redundancy Check (CRC)</h2>
+      <div class="concept-card">
+        <p>Uses polynomial division. Common in Ethernet and storage. Detects burst errors effectively.</p>
+      </div>
+
+      <h2 id="Hamming">Hamming Code</h2>
+      <div class="concept-card">
+        <p>Uses parity bits at power‑of‑2 positions. Can detect 2‑bit and correct 1‑bit errors.</p>
+        <p>For <em>m</em> data bits, need <em>r</em> parity bits: <code>2^r ≥ m + r + 1</code>.</p>
+      </div>
+
+      <h2 id="Interactive">Interactive: Even Parity</h2>
+      <div class="interactive-box">
+        <div class="calc-row">
+          <label>Data Bits</label><input id="dataBits" value="1011" />
+          <button class="btn" onclick="calcParity()">Compute</button>
+        </div>
+        <div id="parityResult" class="result-box">Parity Bit: 1 (Even)</div>
+      </div>
+
+      <h2 id="PracticeSet">Practice Set</h2>
+      <ol>
+        <li>Compute even parity for 10110.</li>
+        <li>How many parity bits are needed for 8 data bits in Hamming code?</li>
+        <li>Why is CRC stronger than simple checksum?</li>
+      </ol>
+    </div>
+  </main>
+
+  <script>
+    function calcParity(){
+      const bits = (dataBits.value || '').replace(/[^01]/g,'');
+      let count = 0;
+      for(const ch of bits) if(ch === '1') count++;
+      const parity = count % 2;
+      parityResult.innerText = `Parity Bit: ${parity} (Even)`;
+    }
+    calcParity();
+  </script>
+</body>
+</html>

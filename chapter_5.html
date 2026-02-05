@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 5 — Computer Organization</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .concept-card { background: white; padding: 20px; border-left: 4px solid #3b82f6; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .diagram-box { background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; margin: 20px 0; border: 1px solid #e9ecef; }
+    .interactive-box { background: #e8f8f5; border: 2px dashed #10b981; padding: 20px; border-radius: 8px; margin: 20px 0; }
+    .cpu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: center; }
+    .component { border: 2px solid #333; padding: 16px; background: white; border-radius: 8px; position: relative; }
+    .bus { height: 10px; background: #333; grid-column: 1 / span 2; margin: 10px 0; position: relative; border-radius: 5px; }
+    .signal { width: 10px; height: 10px; background: #ef4444; border-radius: 50%; position: absolute; top: 0; left: 0; display: none; }
+    .calc-row { display:flex; gap:10px; align-items:center; flex-wrap: wrap; }
+    .calc-row input, .calc-row select { padding:6px 8px; border:1px solid #ccc; border-radius:4px; }
+    .result-box { margin-top:10px; padding:10px; background:#f8f9fa; border:1px solid #e3e6e8; border-radius:6px; }
+    table { width:100%; border-collapse: collapse; margin:16px 0; }
+    th, td { border:1px solid #e3e6e8; padding:8px; text-align:left; }
+    th { background:#f1f5f9; }
+
+    @keyframes moveBus {
+      0% { left: 10%; }
+      50% { left: 80%; }
+      100% { left: 10%; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>CS Textbook</h2>
+    <ul>
+      <li><a href="index.html">Table of Contents</a></li>
+      <li><a href="chapter_0.html">Preface</a></li>
+      <li><a href="chapter_1.html">Chapter 1 — Introduction</a></li>
+      <li><a href="chapter_2.html">Chapter 2 — Number Systems</a></li>
+      <li><a href="chapter_3.html">Chapter 3 — Data Storage</a></li>
+      <li><a href="chapter_4.html">Chapter 4 — Operations on Data</a></li>
+      <li><a href="chapter_5.html" class="active">Chapter 5 — Computer Organization</a></li>
+      <li><a href="chapter_6.html">Chapter 6 — Computer Networks</a></li>
+      <li><a href="chapter_7.html">Chapter 7 — Operating Systems</a></li>
+      <li><a href="chapter_8.html">Chapter 8 — Algorithms</a></li>
+      <li><a href="chapter_9.html">Chapter 9 — Efficiency of Algorithms</a></li>
+      <li><a href="chapter_10.html">Chapter 10 — Programming Languages</a></li>
+      <li><a href="chapter_11.html">Chapter 11 — Software Engineering</a></li>
+      <li><a href="chapter_12.html">Chapter 12 — Data Structure</a></li>
+      <li><a href="chapter_13.html">Chapter 13 — Abstract Data Types</a></li>
+      <li><a href="chapter_14.html">Chapter 14 — File Structure</a></li>
+      <li><a href="chapter_15.html">Chapter 15 — Databases</a></li>
+      <li><a href="chapter_16.html">Chapter 16 — Data Compression</a></li>
+      <li><a href="chapter_17.html">Chapter 17 — Security</a></li>
+      <li><a href="chapter_18.html">Chapter 18 — Theory of Computation</a></li>
+      <li><a href="chapter_19.html">Chapter 19 — Computer Graphics</a></li>
+      <li><a href="chapter_20.html">Chapter 20 — Artificial Intelligence</a></li>
+      <li><a href="chapter_21.html">Chapter 21 — Introduction to Social Media</a></li>
+      <li><a href="chapter_22.html">Chapter 22 — Social and Ethical Issues</a></li>
+      <li><a href="chapter_23.html">Appendix A — Unicode</a></li>
+      <li><a href="chapter_24.html">Appendix B — Unified Modeling Language (UML)</a></li>
+      <li><a href="chapter_25.html">Appendix C — Pseudocode</a></li>
+      <li><a href="chapter_26.html">Appendix D — Structure Chart</a></li>
+      <li><a href="chapter_27.html">Appendix E — Boolean Algebra and Logic Circuits</a></li>
+      <li><a href="chapter_28.html">Appendix F — Examples of Programs</a></li>
+      <li><a href="chapter_29.html">Appendix G — Mathematical Review</a></li>
+      <li><a href="chapter_30.html">Appendix H — Error Detection and Correction</a></li>
+      <li><a href="chapter_31.html">Appendix I — Addition/Subtraction (Sign-and-Magnitude)</a></li>
+      <li><a href="chapter_32.html">Appendix J — Addition/Subtraction (Reals)</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Chapter 5 — Computer Organization</h1>
+    <div class="navigation-top" style="display:flex; justify-content:space-between; margin-bottom:20px;">
+      <a href="chapter_4.html" class="btn">← Chapter 4</a>
+      <a href="chapter_6.html" class="btn">Chapter 6 →</a>
+    </div>
+
+    <div class="content-sections">
+      <h2 id="Overview">Organization Overview</h2>
+      <div class="concept-card">
+        <p>Computer organization focuses on <strong>how hardware components work together</strong> to execute programs. The classic <span class="key-term">von Neumann model</span> includes CPU, memory, and I/O devices connected by buses.</p>
+      </div>
+      <div class="diagram-box">
+        <strong>CPU</strong> ⇄ <strong>Memory</strong> ⇄ <strong>I/O</strong>
+        <p>All communication flows through the system bus.</p>
+      </div>
+
+      <h2 id="CPU">Central Processing Unit (CPU)</h2>
+      <div class="concept-card">
+        <ul>
+          <li><strong>ALU</strong>: performs arithmetic and logic operations.</li>
+          <li><strong>Control Unit</strong>: fetches/decodes instructions and coordinates signals.</li>
+          <li><strong>Registers</strong>: fastest storage (PC, IR, MAR, MDR, ACC).</li>
+        </ul>
+      </div>
+
+      <h2 id="InstructionCycle">Instruction Cycle</h2>
+      <div class="interactive-box">
+        <h3>Interactive: Fetch → Decode → Execute</h3>
+        <div class="cpu-grid">
+          <div class="component">
+            <strong>Main Memory</strong><br>
+            100: LOAD A<br>
+            101: ADD B
+          </div>
+          <div class="component">
+            <strong>Control Unit</strong><br>
+            <span id="cu-status">Idle</span>
+          </div>
+          <div class="bus">
+            <div class="signal" id="signal-dot"></div>
+          </div>
+          <div class="component">
+            <strong>ALU</strong><br>
+            Result: <span id="alu-res">0</span>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:20px;">
+          <button class="btn" onclick="runCycle()">Next Step</button>
+          <p id="cycle-desc" style="font-weight:bold; color:#2563eb;">Click Next Step to start.</p>
+        </div>
+      </div>
+
+      <h2 id="BusesIO">Buses & I/O</h2>
+      <div class="concept-card">
+        <p>Buses carry data, addresses, and control signals. I/O devices interact with the CPU via <span class="key-term">interrupts</span> or <span class="key-term">DMA</span> (Direct Memory Access).</p>
+        <p><strong>Bus bandwidth</strong> ≈ bus width × frequency.</p>
+      </div>
+      <div class="interactive-box">
+        <h3>Interactive: Bus Bandwidth Calculator</h3>
+        <div class="calc-row">
+          <label>Width (bits)</label><input id="busWidth" type="number" value="64" />
+          <label>Frequency (MHz)</label><input id="busFreq" type="number" value="200" />
+          <button class="btn" onclick="calcBus()">Compute</button>
+        </div>
+        <div id="busResult" class="result-box">Bandwidth: 1.60 GB/s</div>
+      </div>
+
+      <h2 id="MemoryHierarchy">Memory Hierarchy</h2>
+      <div class="concept-card">
+        <p>To balance speed and cost, computers use a <span class="key-term">memory hierarchy</span>:</p>
+        <table>
+          <tr><th>Level</th><th>Speed</th><th>Size</th><th>Cost</th></tr>
+          <tr><td>Registers</td><td>Fastest</td><td>Tiny</td><td>Highest</td></tr>
+          <tr><td>Cache (L1/L2/L3)</td><td>Very fast</td><td>Small</td><td>High</td></tr>
+          <tr><td>RAM</td><td>Fast</td><td>GBs</td><td>Medium</td></tr>
+          <tr><td>SSD/HDD</td><td>Slow</td><td>Large</td><td>Low</td></tr>
+        </table>
+      </div>
+      <div class="interactive-box">
+        <h3>Interactive: AMAT (Average Memory Access Time)</h3>
+        <div class="calc-row">
+          <label>Hit Time (ns)</label><input id="hitTime" type="number" value="1" />
+          <label>Miss Rate (%)</label><input id="missRate" type="number" value="5" />
+          <label>Miss Penalty (ns)</label><input id="missPenalty" type="number" value="50" />
+          <button class="btn" onclick="calcAmat()">Compute</button>
+        </div>
+        <div id="amatResult" class="result-box">AMAT: 3.50 ns</div>
+      </div>
+
+      <h2 id="Performance">Performance Metrics</h2>
+      <div class="concept-card">
+        <p>CPU time depends on instruction count, CPI, and clock rate:</p>
+        <p><code>CPU Time = Instruction Count × CPI × Clock Cycle Time</code></p>
+      </div>
+      <div class="interactive-box">
+        <h3>Interactive: CPU Time Calculator</h3>
+        <div class="calc-row">
+          <label>Instr. (million)</label><input id="icount" type="number" value="500" />
+          <label>CPI</label><input id="cpi" type="number" value="1.5" step="0.1" />
+          <label>Clock (GHz)</label><input id="clock" type="number" value="3.0" step="0.1" />
+          <button class="btn" onclick="calcCpu()">Compute</button>
+        </div>
+        <div id="cpuResult" class="result-box">CPU Time: 0.25 s</div>
+      </div>
+
+      <h2 id="EndChapter">End-Chapter Materials</h2>
+      <ul>
+        <li>Explain the role of the Control Unit in the instruction cycle.</li>
+        <li>Why is cache necessary in modern computers?</li>
+        <li>What is the difference between interrupts and polling?</li>
+      </ul>
+
+      <h2 id="PracticeSet">Practice Set</h2>
+      <ol>
+        <li>A bus is 32 bits wide at 100 MHz. What is its bandwidth?</li>
+        <li>Compute AMAT with hit time 2 ns, miss rate 10%, miss penalty 80 ns.</li>
+        <li>Given 800 million instructions, CPI 2.0, and 2.5 GHz clock, compute CPU time.</li>
+      </ol>
+    </div>
+  </main>
+
+  <script>
+    let step = 0;
+    const steps = [
+      { text: "Fetch: PC → MAR (address 100)", signal: true, cu: "Fetching" },
+      { text: "Fetch: Memory → MDR → IR (LOAD A)", signal: true, cu: "Fetching" },
+      { text: "Decode: Control Unit interprets instruction", signal: false, cu: "Decoding" },
+      { text: "Execute: Load operand A into register", signal: true, cu: "Executing" },
+      { text: "Write-back: Update register, PC++", signal: false, cu: "Idle" }
+    ];
+
+    function runCycle() {
+      const s = steps[step % steps.length];
+      document.getElementById('cycle-desc').innerText = s.text;
+      document.getElementById('cu-status').innerText = s.cu;
+      const dot = document.getElementById('signal-dot');
+      if (s.signal) {
+        dot.style.display = 'block';
+        dot.style.animation = 'moveBus 1s infinite alternate';
+      } else {
+        dot.style.display = 'none';
+        dot.style.animation = 'none';
+      }
+      step++;
+    }
+
+    function calcBus(){
+      const width = parseFloat(busWidth.value || '64');
+      const freqMHz = parseFloat(busFreq.value || '200');
+      const bytesPerCycle = width / 8;
+      const bytesPerSec = bytesPerCycle * freqMHz * 1e6;
+      const gbps = bytesPerSec / (1024*1024*1024);
+      busResult.innerText = `Bandwidth: ${gbps.toFixed(2)} GB/s`;
+    }
+
+    function calcAmat(){
+      const hit = parseFloat(hitTime.value || '1');
+      const missR = parseFloat(missRate.value || '5') / 100;
+      const penalty = parseFloat(missPenalty.value || '50');
+      const amat = hit + missR * penalty;
+      amatResult.innerText = `AMAT: ${amat.toFixed(2)} ns`;
+    }
+
+    function calcCpu(){
+      const ic = parseFloat(icount.value || '500') * 1e6;
+      const c = parseFloat(cpi.value || '1.5');
+      const clk = parseFloat(clock.value || '3.0') * 1e9; // Hz
+      const time = ic * c / clk;
+      cpuResult.innerText = `CPU Time: ${time.toFixed(3)} s`;
+    }
+
+    // init
+    calcBus(); calcAmat(); calcCpu();
+  </script>
+</body>
+</html>

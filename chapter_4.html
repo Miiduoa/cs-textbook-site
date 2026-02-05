@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 4 — Operations on Data</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .concept-card { background: white; padding: 20px; border-left: 4px solid #8e44ad; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .key-term { font-weight: bold; color: #2c3e50; background: #f3e8ff; padding: 2px 5px; border-radius: 3px; }
+    table { width:100%; border-collapse: collapse; margin:16px 0; }
+    th, td { border:1px solid #e3e6e8; padding:8px; text-align:center; }
+    th { background:#f7f1ff; }
+    .calc-row { display:flex; gap:10px; align-items:center; flex-wrap: wrap; }
+    .calc-row input { padding:6px 8px; border:1px solid #ccc; border-radius:4px; width:80px; }
+    .result-box { margin-top:10px; padding:10px; background:#f8f9fa; border:1px solid #e3e6e8; border-radius:6px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>CS Textbook</h2>
+    <ul>
+      <li><a href="index.html">Table of Contents</a></li>
+      <li><a href="chapter_0.html">Preface</a></li>
+      <li><a href="chapter_1.html">Chapter 1 — Introduction</a></li>
+      <li><a href="chapter_2.html">Chapter 2 — Number Systems</a></li>
+      <li><a href="chapter_3.html">Chapter 3 — Data Storage</a></li>
+      <li><a href="chapter_4.html" class="active">Chapter 4 — Operations on Data</a></li>
+      <li><a href="chapter_5.html">Chapter 5 — Computer Organization</a></li>
+      <li><a href="chapter_6.html">Chapter 6 — Computer Networks</a></li>
+      <li><a href="chapter_7.html">Chapter 7 — Operating Systems</a></li>
+      <li><a href="chapter_8.html">Chapter 8 — Algorithms</a></li>
+      <li><a href="chapter_9.html">Chapter 9 — Efficiency of Algorithms</a></li>
+      <li><a href="chapter_10.html">Chapter 10 — Programming Languages</a></li>
+      <li><a href="chapter_11.html">Chapter 11 — Software Engineering</a></li>
+      <li><a href="chapter_12.html">Chapter 12 — Data Structure</a></li>
+      <li><a href="chapter_13.html">Chapter 13 — Abstract Data Types</a></li>
+      <li><a href="chapter_14.html">Chapter 14 — File Structure</a></li>
+      <li><a href="chapter_15.html">Chapter 15 — Databases</a></li>
+      <li><a href="chapter_16.html">Chapter 16 — Data Compression</a></li>
+      <li><a href="chapter_17.html">Chapter 17 — Security</a></li>
+      <li><a href="chapter_18.html">Chapter 18 — Theory of Computation</a></li>
+      <li><a href="chapter_19.html">Chapter 19 — Computer Graphics</a></li>
+      <li><a href="chapter_20.html">Chapter 20 — Artificial Intelligence</a></li>
+      <li><a href="chapter_21.html">Chapter 21 — Introduction to Social Media</a></li>
+      <li><a href="chapter_22.html">Chapter 22 — Social and Ethical Issues</a></li>
+      <li><a href="chapter_23.html">Appendix A — Unicode</a></li>
+      <li><a href="chapter_24.html">Appendix B — Unified Modeling Language (UML)</a></li>
+      <li><a href="chapter_25.html">Appendix C — Pseudocode</a></li>
+      <li><a href="chapter_26.html">Appendix D — Structure Chart</a></li>
+      <li><a href="chapter_27.html">Appendix E — Boolean Algebra and Logic Circuits</a></li>
+      <li><a href="chapter_28.html">Appendix F — Examples of Programs</a></li>
+      <li><a href="chapter_29.html">Appendix G — Mathematical Review</a></li>
+      <li><a href="chapter_30.html">Appendix H — Error Detection and Correction</a></li>
+      <li><a href="chapter_31.html">Appendix I — Addition/Subtraction (Sign-and-Magnitude)</a></li>
+      <li><a href="chapter_32.html">Appendix J — Addition/Subtraction (Reals)</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Chapter 4 — Operations on Data</h1>
+    <div class="navigation-top" style="display:flex; justify-content:space-between; margin-bottom:20px;">
+      <a href="chapter_3.html" class="btn">← Chapter 3</a>
+      <a href="chapter_5.html" class="btn">Chapter 5 →</a>
+    </div>
+
+    <div class="content-sections">
+      <h2 id="LogicOperations">Logic Operations</h2>
+      <div class="concept-card">
+        <p>Logic operations treat data as bits and are the foundation of digital circuits. Common gates: <span class="key-term">AND</span>, <span class="key-term">OR</span>, <span class="key-term">XOR</span>, and <span class="key-term">NOT</span>.</p>
+      </div>
+      <table>
+        <tr><th>A</th><th>B</th><th>AND</th><th>OR</th><th>XOR</th></tr>
+        <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+      </table>
+      <div class="interactive-box">
+        <h3>Interactive: Logic Gate Simulator</h3>
+        <div class="calc-row">
+          <label>A</label><input id="logicA" type="number" value="0" min="0" max="1" />
+          <label>B</label><input id="logicB" type="number" value="1" min="0" max="1" />
+          <button class="btn" onclick="calcLogic()">Compute</button>
+        </div>
+        <div id="logicResult" class="result-box">AND=0, OR=1, XOR=1, NOT A=1</div>
+      </div>
+
+      <h2 id="ShiftOperations">Shift Operations</h2>
+      <div class="concept-card">
+        <p>Shifts move bits left/right. A left shift is equivalent to multiplying by 2; a right shift divides by 2 (integer).</p>
+        <ul>
+          <li><strong>Logical shift</strong>: fills with 0.</li>
+          <li><strong>Arithmetic shift</strong>: preserves sign bit (for signed numbers).</li>
+        </ul>
+      </div>
+      <div class="interactive-box">
+        <h3>Interactive: Shift Calculator (8-bit)</h3>
+        <div class="calc-row">
+          <label>Value (0-255)</label><input id="shiftVal" type="number" value="25" min="0" max="255" />
+          <label>Shift</label><input id="shiftBy" type="number" value="1" min="0" max="7" />
+          <button class="btn" onclick="calcShift()">Compute</button>
+        </div>
+        <div id="shiftResult" class="result-box">Left: 50 (0b00110010) / Right: 12 (0b00001100)</div>
+      </div>
+
+      <h2 id="ArithmeticOperations">Arithmetic Operations</h2>
+      <div class="concept-card">
+        <p>Binary arithmetic follows the same rules as decimal but with base 2. Overflow occurs when the result exceeds the number of bits.</p>
+      </div>
+      <table>
+        <tr><th>Decimal</th><th>Binary</th></tr>
+        <tr><td>5 + 3</td><td>0101 + 0011 = 1000 (8)</td></tr>
+        <tr><td>7 + 9</td><td>0111 + 1001 = 1 0000 (overflow in 4-bit)</td></tr>
+      </table>
+      <div class="interactive-box">
+        <h3>Interactive: 4-bit Adder</h3>
+        <div class="calc-row">
+          <label>X</label><input id="addX" type="number" value="5" min="0" max="15" />
+          <label>Y</label><input id="addY" type="number" value="7" min="0" max="15" />
+          <button class="btn" onclick="calcAdd()">Compute</button>
+        </div>
+        <div id="addResult" class="result-box">Sum: 12 (0b1100) / Overflow: No</div>
+      </div>
+
+      <h2 id="EndChapter">End-Chapter Materials</h2>
+      <ul>
+        <li>Explain the difference between logical and arithmetic right shift.</li>
+        <li>Why does XOR return 1 when inputs differ?</li>
+        <li>What causes overflow in fixed-bit addition?</li>
+      </ul>
+
+      <h2 id="PracticeSet">Practice Set</h2>
+      <ol>
+        <li>Compute 1101 AND 1011.</li>
+        <li>Shift 00110100 left by 2 bits.</li>
+        <li>Using 4 bits, what happens when you add 1111 + 0001?</li>
+      </ol>
+    </div>
+  </main>
+
+  <script>
+    function toBinary(n, bits){
+      let s = n.toString(2);
+      return s.padStart(bits, '0');
+    }
+    function clamp01(v){ return v === 0 ? 0 : 1; }
+
+    function calcLogic(){
+      const A = clamp01(parseInt(logicA.value||'0',10));
+      const B = clamp01(parseInt(logicB.value||'0',10));
+      const AND = A & B;
+      const OR = A | B;
+      const XOR = A ^ B;
+      const NOTA = A ? 0 : 1;
+      logicResult.innerText = `AND=${AND}, OR=${OR}, XOR=${XOR}, NOT A=${NOTA}`;
+    }
+
+    function calcShift(){
+      const v = Math.max(0, Math.min(255, parseInt(shiftVal.value||'0',10)));
+      const s = Math.max(0, Math.min(7, parseInt(shiftBy.value||'0',10)));
+      const left = (v << s) & 0xFF;
+      const right = v >> s;
+      shiftResult.innerText = `Left: ${left} (0b${toBinary(left,8)}) / Right: ${right} (0b${toBinary(right,8)})`;
+    }
+
+    function calcAdd(){
+      const x = Math.max(0, Math.min(15, parseInt(addX.value||'0',10)));
+      const y = Math.max(0, Math.min(15, parseInt(addY.value||'0',10)));
+      const sum = x + y;
+      const overflow = sum > 15 ? 'Yes' : 'No';
+      const sum4 = sum & 0xF;
+      addResult.innerText = `Sum: ${sum4} (0b${toBinary(sum4,4)}) / Overflow: ${overflow}`;
+    }
+
+    calcLogic(); calcShift(); calcAdd();
+  </script>
+</body>
+</html>

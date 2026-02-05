@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 3 — Data Storage</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .concept-card { background: white; padding: 20px; border-left: 4px solid #3498db; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .key-term { font-weight: bold; color: #2c3e50; background: #e8f6f3; padding: 2px 5px; border-radius: 3px; }
+    .calc-row { display:flex; gap:10px; align-items:center; flex-wrap: wrap; }
+    .calc-row input, .calc-row select { padding:6px 8px; border:1px solid #ccc; border-radius:4px; }
+    .result-box { margin-top:10px; padding:10px; background:#f8f9fa; border:1px solid #e3e6e8; border-radius:6px; }
+    table { width:100%; border-collapse: collapse; margin:16px 0; }
+    th, td { border:1px solid #e3e6e8; padding:8px; text-align:left; }
+    th { background:#f1f5f9; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>CS Textbook</h2>
+    <ul>
+      <li><a href="index.html">Table of Contents</a></li>
+      <li><a href="chapter_0.html">Preface</a></li>
+      <li><a href="chapter_1.html">Chapter 1 — Introduction</a></li>
+      <li><a href="chapter_2.html">Chapter 2 — Number Systems</a></li>
+      <li><a href="chapter_3.html" class="active">Chapter 3 — Data Storage</a></li>
+      <li><a href="chapter_4.html">Chapter 4 — Operations on Data</a></li>
+      <li><a href="chapter_5.html">Chapter 5 — Computer Organization</a></li>
+      <li><a href="chapter_6.html">Chapter 6 — Computer Networks</a></li>
+      <li><a href="chapter_7.html">Chapter 7 — Operating Systems</a></li>
+      <li><a href="chapter_8.html">Chapter 8 — Algorithms</a></li>
+      <li><a href="chapter_9.html">Chapter 9 — Efficiency of Algorithms</a></li>
+      <li><a href="chapter_10.html">Chapter 10 — Programming Languages</a></li>
+      <li><a href="chapter_11.html">Chapter 11 — Software Engineering</a></li>
+      <li><a href="chapter_12.html">Chapter 12 — Data Structure</a></li>
+      <li><a href="chapter_13.html">Chapter 13 — Abstract Data Types</a></li>
+      <li><a href="chapter_14.html">Chapter 14 — File Structure</a></li>
+      <li><a href="chapter_15.html">Chapter 15 — Databases</a></li>
+      <li><a href="chapter_16.html">Chapter 16 — Data Compression</a></li>
+      <li><a href="chapter_17.html">Chapter 17 — Security</a></li>
+      <li><a href="chapter_18.html">Chapter 18 — Theory of Computation</a></li>
+      <li><a href="chapter_19.html">Chapter 19 — Computer Graphics</a></li>
+      <li><a href="chapter_20.html">Chapter 20 — Artificial Intelligence</a></li>
+      <li><a href="chapter_21.html">Chapter 21 — Introduction to Social Media</a></li>
+      <li><a href="chapter_22.html">Chapter 22 — Social and Ethical Issues</a></li>
+      <li><a href="chapter_23.html">Appendix A — Unicode</a></li>
+      <li><a href="chapter_24.html">Appendix B — Unified Modeling Language (UML)</a></li>
+      <li><a href="chapter_25.html">Appendix C — Pseudocode</a></li>
+      <li><a href="chapter_26.html">Appendix D — Structure Chart</a></li>
+      <li><a href="chapter_27.html">Appendix E — Boolean Algebra and Logic Circuits</a></li>
+      <li><a href="chapter_28.html">Appendix F — Examples of Programs</a></li>
+      <li><a href="chapter_29.html">Appendix G — Mathematical Review</a></li>
+      <li><a href="chapter_30.html">Appendix H — Error Detection and Correction</a></li>
+      <li><a href="chapter_31.html">Appendix I — Addition/Subtraction (Sign-and-Magnitude)</a></li>
+      <li><a href="chapter_32.html">Appendix J — Addition/Subtraction (Reals)</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Chapter 3 — Data Storage</h1>
+    <div class="navigation-top" style="display:flex; justify-content:space-between; margin-bottom:20px;">
+      <a href="chapter_2.html" class="btn">← Chapter 2</a>
+      <a href="chapter_4.html" class="btn">Chapter 4 →</a>
+    </div>
+
+    <div class="content-sections">
+      <h2 id="DataTypes">Data Types</h2>
+      <div class="concept-card">
+        <p>All data in a computer is stored as <span class="key-term">bits</span> (0/1). A group of 8 bits is a <span class="key-term">byte</span>. Different types of data require different encodings.</p>
+        <ul>
+          <li><strong>Integer</strong>: whole numbers (signed/unsigned).</li>
+          <li><strong>Floating-point</strong>: real numbers with decimals (IEEE 754).</li>
+          <li><strong>Character</strong>: letters/symbols (ASCII/Unicode).</li>
+          <li><strong>Boolean</strong>: true/false.</li>
+        </ul>
+      </div>
+
+      <h2 id="StoringNumbers">Storing Numbers</h2>
+      <div class="concept-card">
+        <p>Integers are commonly stored using <span class="key-term">two’s complement</span>. For <em>n</em> bits:</p>
+        <ul>
+          <li>Unsigned range: <code>0</code> to <code>2^n − 1</code></li>
+          <li>Signed range: <code>−2^(n−1)</code> to <code>2^(n−1) − 1</code></li>
+        </ul>
+      </div>
+      <div class="interactive-box">
+        <h3>Interactive: Integer Range Calculator</h3>
+        <div class="calc-row">
+          <label>Bits:</label>
+          <input id="bitCount" type="number" value="8" min="1" max="64" />
+          <select id="signMode">
+            <option value="signed">Signed</option>
+            <option value="unsigned">Unsigned</option>
+          </select>
+          <button class="btn" onclick="calcRange()">Compute</button>
+        </div>
+        <div id="rangeResult" class="result-box">Result: −128 to 127</div>
+      </div>
+
+      <h2 id="StoringText">Storing Text</h2>
+      <div class="concept-card">
+        <p><span class="key-term">ASCII</span> uses 7–8 bits per character; <span class="key-term">Unicode</span> (UTF‑8/UTF‑16) supports global languages and emojis.</p>
+        <table>
+          <tr><th>Encoding</th><th>Typical Size</th><th>Example</th></tr>
+          <tr><td>ASCII</td><td>1 byte</td><td>'A' = 65</td></tr>
+          <tr><td>UTF‑8</td><td>1–4 bytes</td><td>Emoji 😊 = 4 bytes</td></tr>
+          <tr><td>UTF‑16</td><td>2–4 bytes</td><td>繁體字 ≈ 2 bytes</td></tr>
+        </table>
+      </div>
+
+      <h2 id="StoringAudio">Storing Audio</h2>
+      <div class="concept-card">
+        <p>Audio is sampled. File size depends on <span class="key-term">sample rate</span>, <span class="key-term">bit depth</span>, <span class="key-term">channels</span>, and <span class="key-term">duration</span>.</p>
+        <p>Size ≈ <code>sampleRate × bitDepth/8 × channels × duration</code></p>
+      </div>
+      <div class="interactive-box">
+        <h3>Interactive: Audio File Size</h3>
+        <div class="calc-row">
+          <label>Sample Rate (Hz)</label><input id="audioRate" type="number" value="44100" />
+          <label>Bit Depth</label><input id="audioBit" type="number" value="16" />
+          <label>Channels</label><input id="audioCh" type="number" value="2" />
+          <label>Duration (sec)</label><input id="audioSec" type="number" value="60" />
+          <button class="btn" onclick="calcAudio()">Compute</button>
+        </div>
+        <div id="audioResult" class="result-box">Result: 10.09 MB</div>
+      </div>
+
+      <h2 id="StoringImages">Storing Images</h2>
+      <div class="concept-card">
+        <p>Bitmap images store each pixel. Size depends on <span class="key-term">resolution</span> and <span class="key-term">color depth</span>.</p>
+        <p>Size ≈ <code>width × height × bitsPerPixel / 8</code></p>
+      </div>
+      <div class="interactive-box">
+        <h3>Interactive: Image Size</h3>
+        <div class="calc-row">
+          <label>Width</label><input id="imgW" type="number" value="1920" />
+          <label>Height</label><input id="imgH" type="number" value="1080" />
+          <label>Bits/Pixel</label><input id="imgBpp" type="number" value="24" />
+          <button class="btn" onclick="calcImage()">Compute</button>
+        </div>
+        <div id="imgResult" class="result-box">Result: 5.93 MB</div>
+      </div>
+
+      <h2 id="StoringVideo">Storing Video</h2>
+      <div class="concept-card">
+        <p>Video = sequence of images + audio. Raw video is huge; compression (H.264/HEVC) makes it practical.</p>
+        <p>Raw size ≈ <code>frameSize × fps × duration</code>. Compression reduces size by 20×–100×.</p>
+      </div>
+      <div class="interactive-box">
+        <h3>Interactive: Video Size (Raw vs Compressed)</h3>
+        <div class="calc-row">
+          <label>Width</label><input id="vidW" type="number" value="1920" />
+          <label>Height</label><input id="vidH" type="number" value="1080" />
+          <label>Bits/Pixel</label><input id="vidBpp" type="number" value="24" />
+          <label>FPS</label><input id="vidFps" type="number" value="30" />
+          <label>Duration (sec)</label><input id="vidSec" type="number" value="60" />
+          <label>Compression Ratio</label><input id="vidComp" type="number" value="50" />
+          <button class="btn" onclick="calcVideo()">Compute</button>
+        </div>
+        <div id="vidResult" class="result-box">Raw: 3.73 GB / Compressed: 76.3 MB</div>
+      </div>
+
+      <h2 id="EndChapter">End-Chapter Materials</h2>
+      <ul>
+        <li>Review: Explain why two’s complement is preferred for signed integers.</li>
+        <li>Compare: ASCII vs UTF‑8 in terms of storage efficiency.</li>
+        <li>Apply: Estimate storage size for a 5‑minute stereo audio recording.</li>
+      </ul>
+
+      <h2 id="PracticeSet">Practice Set</h2>
+      <ol>
+        <li>A 10‑minute mono audio file is sampled at 44.1 kHz with 16‑bit depth. What is its size?</li>
+        <li>A 4K image (3840×2160) uses 24‑bit color. How many MB is the raw image?</li>
+        <li>Why is video compression essential for streaming?</li>
+      </ol>
+    </div>
+  </main>
+
+  <script>
+    function fmtBytes(bytes){
+      const units = ['B','KB','MB','GB','TB'];
+      let i=0, b=bytes;
+      while(b>=1024 && i<units.length-1){ b/=1024; i++; }
+      return `${b.toFixed(2)} ${units[i]}`;
+    }
+
+    function calcRange(){
+      const bits = parseInt(document.getElementById('bitCount').value || '8', 10);
+      const sign = document.getElementById('signMode').value;
+      if(sign === 'unsigned'){
+        const max = Math.pow(2, bits) - 1;
+        document.getElementById('rangeResult').innerText = `Result: 0 to ${max}`;
+      } else {
+        const min = -Math.pow(2, bits-1);
+        const max = Math.pow(2, bits-1) - 1;
+        document.getElementById('rangeResult').innerText = `Result: ${min} to ${max}`;
+      }
+    }
+
+    function calcAudio(){
+      const r = parseInt(audioRate.value||'44100',10);
+      const b = parseInt(audioBit.value||'16',10);
+      const c = parseInt(audioCh.value||'2',10);
+      const s = parseInt(audioSec.value||'60',10);
+      const bytes = r * (b/8) * c * s;
+      audioResult.innerText = `Result: ${fmtBytes(bytes)}`;
+    }
+
+    function calcImage(){
+      const w = parseInt(imgW.value||'1920',10);
+      const h = parseInt(imgH.value||'1080',10);
+      const bpp = parseInt(imgBpp.value||'24',10);
+      const bytes = w * h * (bpp/8);
+      imgResult.innerText = `Result: ${fmtBytes(bytes)}`;
+    }
+
+    function calcVideo(){
+      const w = parseInt(vidW.value||'1920',10);
+      const h = parseInt(vidH.value||'1080',10);
+      const bpp = parseInt(vidBpp.value||'24',10);
+      const fps = parseInt(vidFps.value||'30',10);
+      const sec = parseInt(vidSec.value||'60',10);
+      const comp = parseFloat(vidComp.value||'50');
+      const frameBytes = w * h * (bpp/8);
+      const raw = frameBytes * fps * sec;
+      const compressed = raw / comp;
+      vidResult.innerText = `Raw: ${fmtBytes(raw)} / Compressed: ${fmtBytes(compressed)}`;
+    }
+
+    // init
+    calcRange(); calcAudio(); calcImage(); calcVideo();
+  </script>
+</body>
+</html>
