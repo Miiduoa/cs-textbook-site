@@ -1,4 +1,6 @@
 
+* { box-sizing: border-box; }
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
@@ -8,6 +10,16 @@ body {
   height: auto;
   background-color: #f4f4f9;
 }
+
+img, svg, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+pre {
+  overflow-x: auto;
+}
+
 nav {
   width: 300px;
   background: #2c3e50;
@@ -35,13 +47,21 @@ nav a.active { background: #1abc9c; color: white; }
 }
 .toc-details > summary { list-style: none; }
 .toc-details > summary::-webkit-details-marker { display: none; }
-main { flex-grow: 1; padding: 40px; overflow-y: auto; background: white; box-shadow: -2px 0 5px rgba(0,0,0,0.05); }
+main { flex-grow: 1; padding: 40px; overflow-y: auto; overflow-x: hidden; background: white; box-shadow: -2px 0 5px rgba(0,0,0,0.05); }
 h1 { color: #2c3e50; border-bottom: 2px solid #1abc9c; padding-bottom: 10px; }
 h2 { color: #34495e; margin-top: 30px; }
+.interactive-box, .diagram-box { max-width: 100%; overflow-x: auto; }
 .interactive-box { border: 2px dashed #1abc9c; padding: 20px; margin: 20px 0; background: #e8f8f5; border-radius: 8px; }
 .btn { background: #1abc9c; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; font-size: 1rem; }
 .btn:hover { background: #16a085; }
 .diagram { text-align: center; margin: 20px 0; }
+
+#tape-container {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  max-width: 100%;
+}
 
 /* Responsive layout */
 @media (max-width: 980px) {
@@ -71,6 +91,15 @@ h2 { color: #34495e; margin-top: 30px; }
   }
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.25rem; }
+
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .cpu-grid { grid-template-columns: 1fr !important; }
+  .bus { grid-column: 1 / span 1 !important; }
 }
 
 @media (min-width: 981px) {
@@ -88,4 +117,10 @@ h2 { color: #34495e; margin-top: 30px; }
   main { padding: 16px; }
   .interactive-box { padding: 16px; }
   .btn { width: 100%; max-width: 320px; }
+
+  .calc-row { flex-direction: column; align-items: stretch; }
+  .calc-row input, .calc-row select, .calc-row textarea { width: 100%; }
+
+  .bit { width: 42px; height: 50px; font-size: 20px; }
+  .bit-label { bottom: -16px; font-size: 10px; }
 }
