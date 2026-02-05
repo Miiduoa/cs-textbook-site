@@ -118,8 +118,11 @@ h2 { color: #34495e; margin-top: 30px; }
   .interactive-box { padding: 16px; }
   .btn { width: 100%; max-width: 320px; }
 
-  .calc-row { flex-direction: column; align-items: stretch; }
-  .calc-row input, .calc-row select, .calc-row textarea { width: 100%; }
+  .calc-row { flex-direction: column !important; align-items: stretch !important; gap: 8px; }
+  .calc-row label { width: 100%; }
+  .calc-row input, .calc-row select, .calc-row textarea { width: 100% !important; max-width: 100%; }
+
+  .result-box { overflow-x: auto; }
 
   .bit { width: 42px; height: 50px; font-size: 20px; }
   .bit-label { bottom: -16px; font-size: 10px; }

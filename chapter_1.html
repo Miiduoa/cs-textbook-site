@@ -85,8 +85,17 @@
                     }
                     function updateHead() {
                         const ptr = document.getElementById('head-pointer');
-                        ptr.style.marginLeft = (12 + (headPos * 48)) + 'px'; // 40 width + 4 margin + 4 padding approx
+                        const container = document.getElementById('tape-container');
+                        const cell = document.getElementById('c' + Math.min(headPos, tapeLength - 1));
+                        if (!ptr || !container || !cell) return;
+
+                        const cellRect = cell.getBoundingClientRect();
+                        const containerRect = container.getBoundingClientRect();
+                        const offset = cellRect.left - containerRect.left + (cellRect.width / 2) - 20;
+                        ptr.style.marginLeft = Math.max(0, offset) + 'px';
                     }
+
+                    document.getElementById('tape-container').addEventListener('scroll', updateHead);
                     function resetTuring() {
                         headPos = 0;
                         document.getElementById('c0').innerText = '0';
