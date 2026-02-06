@@ -1,0 +1,5 @@
+.venv/
+exams/pdfs/
+exams/pdfs_*/
+exams/texts/
+exams/texts_*/
