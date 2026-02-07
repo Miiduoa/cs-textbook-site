@@ -70,6 +70,36 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>AI 章節英文常見詞：<em>model, training, inference, accuracy, precision, recall</em>。先把指標公式記清楚，再看題目。</p>
+        <ul>
+          <li><em>Precision</em> 看「你說是正的，有多少真的正」。</li>
+          <li><em>Recall</em> 看「真的正的，有多少被你抓到」。</li>
+          <li>看到 <em>confusion matrix</em> 就先把 TP/FP/TN/FN 寫出來。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Define AI and distinguish it from ML.</li>
+          <li>Explain supervised/unsupervised/reinforcement learning.</li>
+          <li>Compute evaluation metrics from confusion matrices.</li>
+          <li>Recognize ethical issues in AI systems.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">AI</span>, <span class="key-term">machine learning</span>, <span class="key-term">supervised</span>, <span class="key-term">precision</span>, <span class="key-term">recall</span>, <span class="key-term">F1</span>, <span class="key-term">confusion matrix</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Precision & Recall</h3>
+        <p>TP=80, FP=10, FN=20 → Precision = 80/(80+10)=0.89, Recall = 80/(80+20)=0.80.</p>
+      </div>
+
       <h2 id="Overview">What is AI?</h2>
       <div class="concept-card">
         <p>Artificial Intelligence (AI) aims to build systems that perform tasks requiring human intelligence: perception, reasoning, learning, and decision‑making.</p>
@@ -100,6 +130,15 @@
           <button class="btn" onclick="calcMetrics()">Compute</button>
         </div>
         <div id="metricResult" class="result-box">Precision: 0.89, Recall: 0.80, F1: 0.84, Acc: 0.85</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>什麼是生成式人工智慧 (AI)？請舉一個例子說明。</li>
+          <li>CPU/GPU 在生成式 AI 模型訓練中扮演的角色差異。</li>
+        </ol>
+        <p class="exam-source">Sources: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101121&iDP=66428&iS=3086" target="_blank">東吳大學 114 計算機概論</a> · <a href="https://master.get.com.tw/exam/Download.ashx?iP=100895&iDP=67331&iS=3086" target="_blank">國立臺北教育大學 114 AI 與資訊教育碩士班</a></p>
       </div>
 
       <h2 id="EndChapter">End‑Chapter Materials</h2>

@@ -70,6 +70,36 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>計算理論英文常是「模型＋語言」：<em>finite automata</em>、<em>pushdown automata</em>、<em>decidable/undecidable</em>。先背名詞，再看定義。</p>
+        <ul>
+          <li><em>Regular</em> vs <em>context‑free</em> 是典型對比。</li>
+          <li><em>Decidable</em> 表示「總能在有限步數內停機」。</li>
+          <li>看到 <em>halting problem</em> 就是不可判定代表例。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Differentiate automata models and language classes.</li>
+          <li>Explain the Chomsky hierarchy.</li>
+          <li>Define decidability and give examples of undecidable problems.</li>
+          <li>Construct simple DFAs.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">DFA</span>, <span class="key-term">PDA</span>, <span class="key-term">Turing machine</span>, <span class="key-term">regular language</span>, <span class="key-term">context‑free</span>, <span class="key-term">decidable</span>, <span class="key-term">halting problem</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: DFA for Even 1s</h3>
+        <p>Use two states: <code>Even</code> and <code>Odd</code>. Start at Even; toggle state on input 1; stay on same state for input 0.</p>
+      </div>
+
       <h2 id="Automata">Automata</h2>
       <div class="concept-card">
         <p>Computing models classify problems by what machines can solve them:</p>
@@ -97,6 +127,14 @@
           <button class="btn" onclick="checkEven()">Check</button>
         </div>
         <div id="dfaResult" class="result-box">Result: Accept (even number of 1s)</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>設計一個 DFA，使其接受「1 的個數為偶數」的二進位字串。</li>
+        </ol>
+        <p class="exam-source">Source: <a href="https://master.get.com.tw/exam/Download.ashx?iP=100896&iDP=66513&iS=3086" target="_blank">國立臺北教育大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End‑Chapter Materials</h2>

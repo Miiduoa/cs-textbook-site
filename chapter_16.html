@@ -70,6 +70,36 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>這章英文核心是 <em>lossless/lossy</em> 與 <em>entropy</em>。讀到壓縮比時，先看「原始/壓縮」的分子分母。</p>
+        <ul>
+          <li><em>Huffman</em> = 頻率越高，碼越短。</li>
+          <li><em>LZW</em> = 字典壓縮。</li>
+          <li>看到 <em>bitrate</em> 就是「每秒位元數」。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Explain why compression is possible.</li>
+          <li>Compare lossless and lossy methods.</li>
+          <li>Compute compression ratio and savings.</li>
+          <li>Describe Huffman and LZW at a high level.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">lossless</span>, <span class="key-term">lossy</span>, <span class="key-term">entropy</span>, <span class="key-term">Huffman</span>, <span class="key-term">LZW</span>, <span class="key-term">bitrate</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Compression Ratio</h3>
+        <p>Original 100 MB → Compressed 25 MB ⇒ Ratio = 100 / 25 = 4×, Savings = 75%.</p>
+      </div>
+
       <h2 id="Basics">Compression Basics</h2>
       <div class="concept-card">
         <p>Compression reduces storage or transmission cost by encoding data more efficiently.</p>
@@ -99,6 +129,14 @@
           <button class="btn" onclick="calcRatio()">Compute</button>
         </div>
         <div id="ratioResult" class="result-box">Ratio: 4.00×, Savings: 75%</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>請利用 Huffman 編碼對下列字元進行編碼，且每個字元出現的機率相同：A,B,C,D,E,F,G,H,I,J</li>
+        </ol>
+        <p class="exam-source">Source: <a href="https://master.get.com.tw/exam/Download.ashx?iP=100896&iDP=66513&iS=3086" target="_blank">國立臺北教育大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End‑Chapter Materials</h2>

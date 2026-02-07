@@ -70,6 +70,36 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>資安英文常出現 CIA、symmetric/asymmetric、hash。讀到「攻擊」先找類型（SQLi/XSS/DoS），讀到「防禦」先找方法（validation/patching/least privilege）。</p>
+        <ul>
+          <li><em>Confidentiality/Integrity/Availability</em> = CIA 三要素。</li>
+          <li><em>Symmetric</em> 快、<em>Asymmetric</em> 方便做金鑰交換。</li>
+          <li>SQL Injection 題目先看拼接點。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Explain CIA triad and common threats.</li>
+          <li>Compare symmetric and asymmetric cryptography.</li>
+          <li>Describe basic defenses (validation, hashing, MFA).</li>
+          <li>Estimate password strength with entropy.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">CIA triad</span>, <span class="key-term">encryption</span>, <span class="key-term">hash</span>, <span class="key-term">SQL injection</span>, <span class="key-term">phishing</span>, <span class="key-term">entropy</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Symmetric vs Asymmetric</h3>
+        <p>Symmetric uses one shared key (fast). Asymmetric uses public/private keys (enables key exchange and signatures).</p>
+      </div>
+
       <h2 id="CIA">CIA Triad</h2>
       <div class="concept-card">
         <ul>
@@ -107,6 +137,16 @@
           <button class="btn" onclick="calcEntropy()">Compute</button>
         </div>
         <div id="entropyResult" class="result-box">Entropy: 71.6 bits</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>設計加密通訊系統時，應如何選擇使用對稱式或非對稱式加密？(比較差異 + 情境：即時訊息加密、初始密鑰交換)</li>
+          <li>SQL Injection：<code>SELECT * FROM users WHERE username='$username' AND password='$password';</code> (1) 如何繞過密碼登入 admin？(2) 至少一種防範方法</li>
+          <li>若內部資料持續外流，身為資安負責人你會怎麼做？</li>
+        </ol>
+        <p class="exam-source">Sources: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101022&iDP=66897&iS=3086" target="_blank">國立嘉義大學 114 計算機概論</a> · <a href="https://master.get.com.tw/exam/Download.ashx?iP=101121&iDP=66428&iS=3086" target="_blank">東吳大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End‑Chapter Materials</h2>
