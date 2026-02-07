@@ -81,6 +81,37 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>這章的英文像「硬體導覽」：先抓名詞（CPU、register、bus），再抓量化指標（clock rate、CPI、AMAT）。遇到公式時，先看變數代表什麼，再看單位。</p>
+        <ul>
+          <li><em>Instruction cycle</em> 通常是 fetch → decode → execute → store。</li>
+          <li><em>Clock rate</em> 是「每秒幾拍」，<em>CPI</em> 是「每指令平均幾拍」。</li>
+          <li>看到 cache/memory hierarchy，注意「速度 vs 容量」的 trade‑off。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Identify CPU components and their roles.</li>
+          <li>Explain the fetch–decode–execute cycle.</li>
+          <li>Compute CPU time using instruction count, CPI, and clock rate.</li>
+          <li>Analyze memory hierarchy with AMAT and bus bandwidth.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">CPU</span>, <span class="key-term">ALU</span>, <span class="key-term">control unit</span>, <span class="key-term">register</span>, <span class="key-term">clock rate</span>, <span class="key-term">CPI</span>, <span class="key-term">cache</span>, <span class="key-term">bus</span>, <span class="key-term">AMAT</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: CPU Time</h3>
+        <p>Given <code>IC = 1.2×10⁹</code>, <code>CPI = 1.5</code>, and clock rate <code>3 GHz</code>:</p>
+        <p><code>CPU time = (IC × CPI) / clock rate = (1.2e9 × 1.5) / 3e9 = 0.6 s</code></p>
+      </div>
+
       <h2 id="Overview">Organization Overview</h2>
       <div class="concept-card">
         <p>Computer organization focuses on <strong>how hardware components work together</strong> to execute programs. The classic <span class="key-term">von Neumann model</span> includes CPU, memory, and I/O devices connected by buses.</p>
@@ -177,6 +208,15 @@
           <button class="btn" onclick="calcCpu()">Compute</button>
         </div>
         <div id="cpuResult" class="result-box">CPU Time: 0.25 s</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>下列關於雙核心 CPU 的說明，何者為錯誤？ (1) 雙核心 CPU 因為有 2 個核心，所以耗電量是單核心 CPU 的 2 倍 (2) 程式必須經過特別設計才能發揮效能 (3) 共有 2 組控制單元與算術/邏輯單元 (4) 加上 Hyper‑Threading 會被辨識為 4 顆 CPU</li>
+          <li>用來計算 CPU 運算速度的單元是？ (1) USB (2) FSB (3) GHz (4) MIPS</li>
+        </ol>
+        <p class="exam-source">Source: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101121&iDP=66428&iS=3086" target="_blank">東吳大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End-Chapter Materials</h2>

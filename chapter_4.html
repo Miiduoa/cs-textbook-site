@@ -70,6 +70,37 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>這章的英文是「動作導向」：<em>invert, shift, mask, add, overflow</em> 都是動詞。閱讀時先找動作，再問「對哪一位元做什麼」。</p>
+        <ul>
+          <li><em>Logical vs arithmetic shift</em> 是常考對比題，先抓「是否保留 sign bit」。</li>
+          <li><em>Overflow</em> 不是「數字錯了」，而是「位數不夠」。</li>
+          <li>看到 <em>truth table</em> 先讀輸入，再讀輸出。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Apply basic logic operations and interpret truth tables.</li>
+          <li>Explain logical vs arithmetic shifts and their effects.</li>
+          <li>Perform binary addition and detect overflow.</li>
+          <li>Relate two’s complement arithmetic to hardware adders.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">AND</span>, <span class="key-term">OR</span>, <span class="key-term">XOR</span>, <span class="key-term">NOT</span>, <span class="key-term">shift</span>, <span class="key-term">mask</span>, <span class="key-term">overflow</span>, <span class="key-term">two’s complement</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: 4‑bit Addition</h3>
+        <p>Add <code>0111</code> (7) and <code>1001</code> (9).</p>
+        <p><code>0111 + 1001 = 1 0000</code> → 4‑bit result is <code>0000</code> with carry‑out 1, so overflow occurs.</p>
+      </div>
+
       <h2 id="LogicOperations">Logic Operations</h2>
       <div class="concept-card">
         <p>Logic operations treat data as bits and are the foundation of digital circuits. Common gates: <span class="key-term">AND</span>, <span class="key-term">OR</span>, <span class="key-term">XOR</span>, and <span class="key-term">NOT</span>.</p>
@@ -126,6 +157,14 @@
           <button class="btn" onclick="calcAdd()">Compute</button>
         </div>
         <div id="addResult" class="result-box">Sum: 12 (0b1100) / Overflow: No</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>使用 2 補數表示法，將下列十進位數值改成 32 位元之二進位整數：(1) −12 (2) 142</li>
+        </ol>
+        <p class="exam-source">Source: <a href="https://master.get.com.tw/exam/Download.ashx?iP=100896&iDP=66513&iS=3086" target="_blank">國立臺北教育大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End-Chapter Materials</h2>

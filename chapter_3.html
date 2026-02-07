@@ -70,6 +70,37 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>這章會一直出現容量與速度的英文單位：<em>bit/byte</em>、<em>KB/MB/GB</em>、<em>throughput</em>、<em>latency</em>。讀到公式時先圈出「rate × time」這個結構，然後再看單位是否一致。</p>
+        <ul>
+          <li>看到 <em>storage hierarchy</em>，記住口訣：fast/expensive/small → slow/cheap/large。</li>
+          <li><em>Primary vs secondary storage</em> 多半在講「是否直接被 CPU 存取」。</li>
+          <li>遇到圖片/音訊/影片大小，先算「未壓縮 raw size」。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Explain how data types are encoded as bits and bytes.</li>
+          <li>Compute storage requirements for audio, image, and video.</li>
+          <li>Describe the memory hierarchy and the role of cache/virtual memory.</li>
+          <li>Compare primary vs secondary storage technologies.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">bit</span>, <span class="key-term">byte</span>, <span class="key-term">capacity</span>, <span class="key-term">latency</span>, <span class="key-term">throughput</span>, <span class="key-term">cache</span>, <span class="key-term">flash memory</span>, <span class="key-term">virtual memory</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Image Size</h3>
+        <p>Uncompressed size of a 1920×1080 image at 24 bits per pixel:</p>
+        <p><code>1920 × 1080 × 24 / 8 ≈ 5,971,200 bytes ≈ 5.7 MB</code></p>
+      </div>
+
       <h2 id="DataTypes">Data Types</h2>
       <div class="concept-card">
         <p>All data in a computer is stored as <span class="key-term">bits</span> (0/1). A group of 8 bits is a <span class="key-term">byte</span>. Different types of data require different encodings.</p>
@@ -164,6 +195,15 @@
           <button class="btn" onclick="calcVideo()">Compute</button>
         </div>
         <div id="vidResult" class="result-box">Raw: 3.73 GB / Compressed: 76.3 MB</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>為了避免實體主記憶體不足而無法執行程式，所以發展出的技術為何？ (1) 快取記憶體 (2) 輔助記憶體 (3) 快閃記憶體 (4) 虛擬記憶體</li>
+          <li>隨身碟內部使用什麼來儲存資料？ (1) 快閃記憶體 (2) 磁碟片 (3) SDRAM (4) 光碟片</li>
+        </ol>
+        <p class="exam-source">Source: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101121&iDP=66428&iS=3086" target="_blank">東吳大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End-Chapter Materials</h2>

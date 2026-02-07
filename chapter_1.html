@@ -39,6 +39,54 @@
         </div>
         
         <div class="content-sections">
+            <div class="reading-guide">
+                <h2>English Reading Guide (中文導讀)</h2>
+                <p>這一章像英文課的「導讀課」：先抓核心名詞，再讀定義。讀英文定義時，先找<strong>主詞</strong>（被定義的名詞），再找<strong>動作</strong>（is/means/consists of），最後找<strong>限制條件</strong>（what it can/cannot do）。</p>
+                <ul>
+                    <li>看到 <em>model</em> / <em>machine</em>，通常是「抽象規則」，不是實體機器。</li>
+                    <li><em>System</em> 可先拆成 input–process–output，再對應 hardware / software / data。</li>
+                    <li>句子很長時，先圈出關鍵動詞：<em>define, compute, represent</em>。</li>
+                </ul>
+            </div>
+
+            <div class="objectives">
+                <h2>Learning Objectives</h2>
+                <ul>
+                    <li>Define <strong>algorithm</strong>, <strong>program</strong>, <strong>abstraction</strong>, and <strong>model</strong>.</li>
+                    <li>Explain the layered view of a computing system.</li>
+                    <li>Describe the components of a Turing machine and its purpose.</li>
+                    <li>Distinguish between hardware, software, and data in real systems.</li>
+                </ul>
+            </div>
+
+            <div class="key-terms">
+                <h2>Key Terms</h2>
+                <p><span class="key-term">algorithm</span>, <span class="key-term">abstraction</span>, <span class="key-term">computation</span>, <span class="key-term">hardware</span>, <span class="key-term">software</span>, <span class="key-term">system</span>, <span class="key-term">model</span>, <span class="key-term">Turing machine</span>, <span class="key-term">state</span>, <span class="key-term">tape</span>, <span class="key-term">transition function</span></p>
+            </div>
+
+            <h2 id="Foundations">Foundations of Computing</h2>
+            <div class="concept-card">
+                <p>A <strong>computing system</strong> transforms input data into output results by following a finite, precise set of steps. In computer science, we separate the <em>idea</em> of a solution from its <em>implementation</em>.</p>
+                <ul>
+                    <li><strong>Algorithm</strong>: a finite, unambiguous sequence of steps that solves a problem.</li>
+                    <li><strong>Program</strong>: an algorithm encoded in a programming language for execution.</li>
+                    <li><strong>Abstraction</strong>: hiding details to focus on essential behavior.</li>
+                    <li><strong>Model</strong>: a simplified formal system used to reason about computation.</li>
+                </ul>
+                <p>These ideas allow us to prove what can be computed, estimate costs, and design systems that are correct and efficient.</p>
+            </div>
+
+            <div class="worked-example">
+                <h3>Worked Example: From Problem → Algorithm</h3>
+                <p><strong>Problem</strong>: compute the sum of the first <em>n</em> positive integers.</p>
+                <ol>
+                    <li>Initialize <code>sum = 0</code></li>
+                    <li>For <code>i = 1</code> to <code>n</code>: add <code>i</code> to <code>sum</code></li>
+                    <li>Return <code>sum</code></li>
+                </ol>
+                <p>This algorithm runs in <strong>O(n)</strong> time. A mathematical abstraction gives <code>n(n+1)/2</code>, which is <strong>O(1)</strong>. This contrast illustrates why abstraction matters.</p>
+            </div>
+
             <h2 id="TuringModel">The Turing Model</h2>
             <div class="concept-card">
                 <p>The <strong>Turing Model</strong>, proposed by Alan Turing in 1936, provides a theoretical definition of a computer. Before Turing, a "computer" was a person who calculated. Turing defined a machine that could perform any calculation that a human could, given enough time and paper.</p>
@@ -164,7 +212,17 @@
                 <tr><td>4th</td><td>1975-1985</td><td>VLSI (Microprocessors)</td><td>Apple II, PC</td></tr>
                 <tr><td>5th</td><td>1985-Present</td><td>Parallel Processing / AI</td><td>Supercomputers</td></tr>
             </table>
-            
+
+            <div class="exam-box">
+                <h2>Past Exam Questions (Selected)</h2>
+                <ol>
+                    <li>下列關於硬體 5 大單元的敘述何者錯誤？ (1) 掃瞄器、數位相機屬於輸入單元 (2) 輸出單元是電腦輸出資料的管道 (3) 記憶單元和控制單元也可合稱為中央處理單元 (4) 控制單元負責控制、協調電腦各單元間的相互運作</li>
+                    <li>下列關於雙核心 CPU 的說明，何者為錯誤？ (1) 雙核心 CPU 因為有 2 個核心，所以耗電量是單核心 CPU 的 2 倍 (2) 程式必須經過特別設計才能發揮效能 (3) 共有 2 組控制單元與算術/邏輯單元 (4) 加上 Hyper‑Threading 會被辨識為 4 顆 CPU</li>
+                    <li>用來計算 CPU 運算速度的單元是？ (1) USB (2) FSB (3) GHz (4) MIPS</li>
+                </ol>
+                <p class="exam-source">Source: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101121&iDP=66428&iS=3086" target="_blank">東吳大學 114 學年度 計算機概論</a></p>
+            </div>
+
             <h2 id="SocialandEthicalIssues">Social and Ethical Issues</h2>
             <p>As computers become ubiquitous, we face new challenges:</p>
             <ul>

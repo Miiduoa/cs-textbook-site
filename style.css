@@ -56,6 +56,48 @@ h2 { color: #34495e; margin-top: 30px; }
 .btn:hover { background: #16a085; }
 .diagram { text-align: center; margin: 20px 0; }
 
+.reading-guide {
+  background: #fff7ed;
+  border-left: 4px solid #f59e0b;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 18px 0;
+}
+.reading-guide ul { margin: 8px 0 0 20px; }
+
+.objectives {
+  background: #ecfeff;
+  border-left: 4px solid #06b6d4;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.key-terms {
+  background: #f1f5f9;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.worked-example {
+  background: #eef2ff;
+  border-left: 4px solid #6366f1;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.exam-box {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+.exam-box ol { padding-left: 18px; }
+.exam-source { font-size: 0.9rem; color: #6b7280; }
+
 #tape-container {
   display: inline-flex;
   flex-wrap: nowrap;

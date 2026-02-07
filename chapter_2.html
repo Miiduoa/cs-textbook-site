@@ -78,6 +78,37 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>這一章是英文課裡的「數學閱讀」：抓住 <em>base/radix</em>、<em>positional</em>、<em>representation</em> 這三個核心字。遇到公式時，先口頭念一次（例如 “base‑2 positional expansion”），再看符號。</p>
+        <ul>
+          <li>看到 <em>most significant bit (MSB)</em>、<em>least significant bit (LSB)</em>，先對應「最高位／最低位」。</li>
+          <li>Two’s complement 是「表示法＋運算規則」一起記。</li>
+          <li>Floating‑point 先看 <em>sign / exponent / mantissa</em> 三欄再讀細節。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Convert numbers between binary, octal, decimal, and hexadecimal.</li>
+          <li>Explain positional notation and bit significance.</li>
+          <li>Represent signed integers using two’s complement.</li>
+          <li>Describe IEEE‑754 floating‑point format and common errors.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">base (radix)</span>, <span class="key-term">positional notation</span>, <span class="key-term">MSB/LSB</span>, <span class="key-term">two’s complement</span>, <span class="key-term">overflow</span>, <span class="key-term">IEEE‑754</span>, <span class="key-term">mantissa</span>, <span class="key-term">exponent</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Hex to Decimal</h3>
+        <p>Convert <code>(C0.3)₁₆</code> to decimal.</p>
+        <p><code>C0.3₁₆ = 12×16¹ + 0×16⁰ + 3×16⁻¹ = 192 + 0 + 0.1875 = 192.1875</code></p>
+      </div>
+
       <h2 id="Introduction">Introduction</h2>
       <div class="concept-card">
         <p>A <strong>number system</strong> defines how numbers are represented using symbols and positional value. The same quantity can be written in different bases, e.g., <code>(2A)₁₆ = (42)₁₀</code>.</p>
@@ -158,6 +189,16 @@
           <button class="btn" onclick="calcSigned()">Compute</button>
         </div>
         <div id="signedResult" class="result-box">Signed Value: -10</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>(C0.3)₁₆ 的十進位表示為？</li>
+          <li>使用 2 補數表示法，將下列十進位數值改成 32 位元二進位整數：(1) −12 (2) 142</li>
+          <li>將下列十進位數值轉換成 32 位元 IEEE‑754 單精度格式：(1) 7.75 (2) −0.375</li>
+        </ol>
+        <p class="exam-source">Sources: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101121&iDP=66428&iS=3086" target="_blank">東吳大學 114 計算機概論</a> · <a href="https://master.get.com.tw/exam/Download.ashx?iP=100896&iDP=66513&iS=3086" target="_blank">國立臺北教育大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End-Chapter Materials</h2>
