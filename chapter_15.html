@@ -70,6 +70,36 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>資料庫英文先抓「表」與「鍵」：<em>relation/table, tuple/row, attribute/column</em>。看到 ACID 就直接對應四個單字。</p>
+        <ul>
+          <li><em>Normalization</em> 是「去重複、避免異常」。</li>
+          <li><em>Primary key</em> 唯一識別，<em>foreign key</em> 用來關聯。</li>
+          <li>SQL 題目先看 WHERE 條件。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Explain the relational model and keys.</li>
+          <li>Describe normalization goals and forms.</li>
+          <li>Write basic SQL queries.</li>
+          <li>Understand ACID properties and transactions.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">relation</span>, <span class="key-term">tuple</span>, <span class="key-term">primary key</span>, <span class="key-term">foreign key</span>, <span class="key-term">normalization</span>, <span class="key-term">ACID</span>, <span class="key-term">SQL</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Primary Key</h3>
+        <p>In a <code>Students(id, name, major)</code> table, <code>id</code> is the primary key because it uniquely identifies each row.</p>
+      </div>
+
       <h2 id="Relational">Relational Model</h2>
       <div class="concept-card">
         <p>Data is stored in <strong>tables</strong> (relations). Each row is a record (tuple), each column is an attribute.</p>
@@ -105,6 +135,15 @@
           <button class="btn" onclick="calcHeight()">Compute</button>
         </div>
         <div id="indexResult" class="result-box">Estimated B‑tree height: 3</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>將資料以表格方式儲存，並透過參考關係查詢相關資料，是屬於何種資料模型？ (1) 階層式 (2) 關聯式 (3) 物件導向式 (4) 表格式</li>
+          <li>SQL Injection：<code>SELECT * FROM users WHERE username='$username' AND password='$password';</code> (1) 如何繞過密碼登入 admin？(2) 至少一種防範方法。</li>
+        </ol>
+        <p class="exam-source">Sources: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101121&iDP=66428&iS=3086" target="_blank">東吳大學 114 計算機概論</a> · <a href="https://master.get.com.tw/exam/Download.ashx?iP=101022&iDP=66897&iS=3086" target="_blank">國立嘉義大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End‑Chapter Materials</h2>

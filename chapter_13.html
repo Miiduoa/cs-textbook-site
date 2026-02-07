@@ -70,6 +70,36 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>ADT 的英文重點是 <em>behavior</em>（行為）與 <em>interface</em>（介面）。先抓「能做什麼」，再抓「如何實作」。</p>
+        <ul>
+          <li><em>Abstract</em> = 不談細節，只談規則。</li>
+          <li>讀到 <em>invariant</em> 就是「一定要成立的條件」。</li>
+          <li>Set ADT 的 invariant：不重複。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Define an ADT and its interface/operations.</li>
+          <li>Distinguish ADTs from concrete data structures.</li>
+          <li>Describe common ADTs (set, map, queue, list).</li>
+          <li>Explain invariants and abstraction barriers.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">ADT</span>, <span class="key-term">interface</span>, <span class="key-term">invariant</span>, <span class="key-term">set</span>, <span class="key-term">map</span>, <span class="key-term">queue</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Set Invariant</h3>
+        <p>If <code>insert(x)</code> is called and <code>x</code> already exists, the set remains unchanged. This preserves uniqueness.</p>
+      </div>
+
       <h2 id="Definition">What is an ADT?</h2>
       <div class="concept-card">
         <p>An <strong>Abstract Data Type (ADT)</strong> specifies <em>behavior</em> (operations and rules) without specifying the underlying implementation.</p>
@@ -104,6 +134,14 @@
           <button class="btn" onclick="hasSet()">Contains?</button>
         </div>
         <div id="setResult" class="result-box">Set: { }</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>對 N 層的二元樹，其節點數最多有幾個？ (1) 2N (2) N (3) 2^N − 1 (4) 2N − 1</li>
+        </ol>
+        <p class="exam-source">Source: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101121&iDP=66428&iS=3086" target="_blank">東吳大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End‑Chapter Materials</h2>
