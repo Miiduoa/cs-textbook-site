@@ -70,6 +70,37 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>這章英文最常出現的是「層」與「位址」：<em>layer, protocol, address, routing</em>。讀到 IPv4/IPv6 時先抓 bit 數，再看表示法。</p>
+        <ul>
+          <li><em>Bandwidth</em> 是「速率」，<em>latency</em> 是「延遲」，別混。</li>
+          <li><em>Topology</em> 是「連線型態」，像 bus/star/ring。</li>
+          <li>看到 <em>subnet</em> 先看 /prefix，再算可用主機數。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Explain network layers and their responsibilities.</li>
+          <li>Calculate host counts from CIDR prefixes.</li>
+          <li>Compare network topologies and trade‑offs.</li>
+          <li>Estimate transfer time using bandwidth and latency.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">protocol</span>, <span class="key-term">TCP/IP</span>, <span class="key-term">IP address</span>, <span class="key-term">CIDR</span>, <span class="key-term">subnet</span>, <span class="key-term">bandwidth</span>, <span class="key-term">latency</span>, <span class="key-term">topology</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Hosts in /26</h3>
+        <p>For IPv4 prefix <code>/26</code>, host bits = 32 − 26 = 6.</p>
+        <p>Hosts = <code>2^6 − 2 = 62</code>.</p>
+      </div>
+
       <h2 id="Overview">Network Overview</h2>
       <div class="concept-card">
         <p>A <strong>computer network</strong> connects devices so they can exchange data and share resources. Networks differ in scale:</p>
@@ -128,6 +159,15 @@
       <div class="concept-card">
         <p>Routers forward packets based on destination IP. Common routing ideas: shortest path, hop count, and policy-based routing.</p>
         <p>Common tools: <code>ping</code> (latency), <code>traceroute</code> (path).</p>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>下列敘述何者正確？ (1) IPv4 位址為 64 Bits (2) IPv6 位址為 128 Bits (3) IPv4 位址通常以 4 段式 16 進位表示 (4) 203.74.205.256 為正確 IPv4 位址</li>
+          <li>擁有 200 個節點的星形網路 (Star LAN) 架構，若其中一小部分受到損壞，會有多少節點受影響？說明理由。</li>
+        </ol>
+        <p class="exam-source">Sources: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101121&iDP=66428&iS=3086" target="_blank">東吳大學 114 計算機概論</a> · <a href="https://master.get.com.tw/exam/Download.ashx?iP=100896&iDP=66513&iS=3086" target="_blank">國立臺北教育大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End-Chapter Materials</h2>

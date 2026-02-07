@@ -70,6 +70,36 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>這章的英文關鍵在「型別」與「編譯流程」。看到 <em>static/dynamic</em>、<em>compile/interpret</em>，先用中文對照，再看例子。</p>
+        <ul>
+          <li><em>Syntax vs semantics</em> = 形式 vs 意義。</li>
+          <li><em>Type coercion</em> 是「自動轉型」，常見在 JavaScript。</li>
+          <li>考題常問：哪些錯誤是「編譯期」抓到。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Compare major programming paradigms.</li>
+          <li>Explain compilation vs interpretation.</li>
+          <li>Distinguish static and dynamic typing with examples.</li>
+          <li>Interpret common code snippets and output behavior.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">paradigm</span>, <span class="key-term">compiler</span>, <span class="key-term">interpreter</span>, <span class="key-term">static typing</span>, <span class="key-term">dynamic typing</span>, <span class="key-term">type coercion</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Java String Equality</h3>
+        <p>In Java, <code>==</code> compares references, not content. Use <code>equals()</code> to compare string values.</p>
+      </div>
+
       <h2 id="Paradigms">Paradigms</h2>
       <div class="concept-card">
         <ul>
@@ -114,6 +144,15 @@
           <button class="btn" onclick="calcExpr()">Evaluate</button>
         </div>
         <div id="exprResult" class="result-box">Result: 8</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>是非題：Java 的 abstract class 與 interface 只能單一繼承？this 不可出現在 static method 中？</li>
+          <li>Java 字串比較：<code>a == b</code> 與 <code>a.equals(b)</code 的輸出差異。</li>
+        </ol>
+        <p class="exam-source">Source: <a href="https://master.get.com.tw/exam/Download.ashx?iP=100896&iDP=66513&iS=3086" target="_blank">國立臺北教育大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End-Chapter Materials</h2>

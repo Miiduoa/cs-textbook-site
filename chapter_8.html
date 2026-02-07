@@ -70,6 +70,37 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>這章的英文偏「方法論」：<em>correctness</em>（正確性）、<em>optimal</em>（最優）、<em>strategy</em>（策略）。看到演算法名稱時先記「想法」，再記「步驟」。</p>
+        <ul>
+          <li><em>Greedy</em> 是「每一步選最好」，不等於全局最好。</li>
+          <li><em>Dynamic programming</em> 是「重用子問題解」。</li>
+          <li>排序/搜尋題目先判斷資料是否「已排序」。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Describe algorithm properties: correctness, termination, efficiency.</li>
+          <li>Compare common design paradigms (greedy, divide & conquer, DP).</li>
+          <li>Analyze searching and sorting procedures.</li>
+          <li>Trace a recursive algorithm and identify base cases.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">algorithm</span>, <span class="key-term">correctness</span>, <span class="key-term">greedy</span>, <span class="key-term">divide and conquer</span>, <span class="key-term">dynamic programming</span>, <span class="key-term">recursion</span>, <span class="key-term">base case</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Selection Sort Trace</h3>
+        <p>Sort <code>[5,4,3,2,1]</code> by repeatedly selecting the minimum and swapping into position.</p>
+        <p>Pass 1 → <code>[1,4,3,2,5]</code>, Pass 2 → <code>[1,2,3,4,5]</code> (continue until sorted).</p>
+      </div>
+
       <h2 id="Definition">What is an Algorithm?</h2>
       <div class="concept-card">
         <p>An algorithm is a finite set of steps that solves a problem. Good algorithms are correct, efficient, and easy to understand.</p>
@@ -118,6 +149,15 @@
       <div class="concept-card">
         <p>Recursion solves a problem by calling itself on smaller inputs. Requires a <strong>base case</strong> to stop.</p>
         <p>Example: <code>factorial(n) = n × factorial(n−1)</code></p>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>請展示以 Selection Sort 將 5、4、3、2、1 由小到大排序的過程。</li>
+          <li>自動駕駛中的 Dijkstra 演算法原理與計算複雜度。</li>
+        </ol>
+        <p class="exam-source">Sources: <a href="https://master.get.com.tw/exam/Download.ashx?iP=100896&iDP=66513&iS=3086" target="_blank">國立臺北教育大學 114 計算機概論</a> · <a href="https://master.get.com.tw/exam/Download.ashx?iP=100895&iDP=67331&iS=3086" target="_blank">國立臺北教育大學 114 AI 與資訊教育碩士班</a></p>
       </div>
 
       <h2 id="EndChapter">End-Chapter Materials</h2>

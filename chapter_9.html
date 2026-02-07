@@ -70,6 +70,36 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>這章的英文是「成長率比較」。先抓 <em>O( )</em>，再抓對應的中文名稱（常數、線性、平方）。讀到公式時先看「n 在哪裡」。</p>
+        <ul>
+          <li>看到 <em>upper bound</em> 就是「上界」。</li>
+          <li><em>Worst‑case</em> 通常是考試標準答案。</li>
+          <li><em>Amdahl’s Law</em> 問的是「平行化的上限」。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Classify algorithms by time/space complexity.</li>
+          <li>Compare growth rates for common functions.</li>
+          <li>Distinguish best/average/worst‑case behavior.</li>
+          <li>Apply Amdahl’s Law to estimate speedup.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">Big‑O</span>, <span class="key-term">upper bound</span>, <span class="key-term">worst‑case</span>, <span class="key-term">average‑case</span>, <span class="key-term">Amdahl’s Law</span>, <span class="key-term">speedup</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Dijkstra Complexity</h3>
+        <p>With a binary heap, Dijkstra runs in <code>O((V+E) log V)</code>. For dense graphs, this is often written as <code>O(E log V)</code>.</p>
+      </div>
+
       <h2 id="Complexity">Time & Space Complexity</h2>
       <div class="concept-card">
         <p>We analyze how running time grows as input size <em>n</em> increases. Big‑O describes the upper bound of growth.</p>
@@ -111,6 +141,15 @@
           <button class="btn" onclick="calcAmdahl()">Compute</button>
         </div>
         <div id="amdahlResult" class="result-box">Speedup: 2.50×</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>大型社群圖應選擇鄰接矩陣或鄰接串列？理由為何？</li>
+          <li>自動駕駛中的 Dijkstra 演算法原理與計算複雜度。</li>
+        </ol>
+        <p class="exam-source">Sources: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101022&iDP=66897&iS=3086" target="_blank">國立嘉義大學 114 計算機概論</a> · <a href="https://master.get.com.tw/exam/Download.ashx?iP=100895&iDP=67331&iS=3086" target="_blank">國立臺北教育大學 114 AI 與資訊教育碩士班</a></p>
       </div>
 
       <h2 id="EndChapter">End-Chapter Materials</h2>

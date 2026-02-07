@@ -70,6 +70,37 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>作業系統英文常考「名詞＋動作」：<em>schedule, allocate, synchronize, deadlock</em>。讀到四大必要條件時，先把條件背成口訣，再對照題目例子。</p>
+        <ul>
+          <li><em>Process vs thread</em> 一定要先對照「記憶體是否共享」。</li>
+          <li><em>Virtual memory</em> 先抓「page/frame」對映。</li>
+          <li><em>Deadlock</em> 題目多半要你畫「資源配置圖」。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Describe core OS responsibilities and services.</li>
+          <li>Distinguish processes and threads.</li>
+          <li>Compute scheduling metrics (waiting time, turnaround).</li>
+          <li>Explain paging and virtual memory basics.</li>
+          <li>Identify deadlock conditions and avoidance strategies.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">process</span>, <span class="key-term">thread</span>, <span class="key-term">scheduler</span>, <span class="key-term">page</span>, <span class="key-term">frame</span>, <span class="key-term">virtual memory</span>, <span class="key-term">deadlock</span>, <span class="key-term">resource allocation</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Deadlock Conditions</h3>
+        <p>The four necessary conditions are <strong>mutual exclusion</strong>, <strong>hold and wait</strong>, <strong>no preemption</strong>, and <strong>circular wait</strong>. If any one is broken, deadlock cannot occur.</p>
+      </div>
+
       <h2 id="Roles">Roles of an OS</h2>
       <div class="concept-card">
         <p>An operating system (OS) manages hardware and provides services for applications.</p>
@@ -123,6 +154,15 @@
       <h2 id="FileSystems">File Systems</h2>
       <div class="concept-card">
         <p>File systems organize data using directories and metadata (permissions, timestamps, size). Common types: FAT, NTFS, ext4.</p>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>死結四必要條件為何？並以資源 A/B 與 P1/P2 設計避免策略。</li>
+          <li>三個行程 A、B、C 持有資源互相等待，請畫資源配置圖並判斷是否死結。</li>
+        </ol>
+        <p class="exam-source">Sources: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101022&iDP=66897&iS=3086" target="_blank">國立嘉義大學 114 計算機概論</a> · <a href="https://master.get.com.tw/exam/Download.ashx?iP=100896&iDP=66513&iS=3086" target="_blank">國立臺北教育大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="EndChapter">End-Chapter Materials</h2>
