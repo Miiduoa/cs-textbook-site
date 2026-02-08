@@ -70,6 +70,35 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>錯誤偵測英文重點：<em>parity, checksum, CRC, Hamming</em>。先抓方法，再看能偵測或更正的範圍。</p>
+        <ul>
+          <li><em>Parity</em> 只能偵測，不一定能更正。</li>
+          <li><em>CRC</em> 用多項式除法。</li>
+          <li><em>Hamming</em> 可以更正單一位元錯誤。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Compute parity bits for a given data word.</li>
+          <li>Explain checksum and CRC at a high level.</li>
+          <li>Differentiate detection vs correction.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">parity</span>, <span class="key-term">checksum</span>, <span class="key-term">CRC</span>, <span class="key-term">Hamming code</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: Even Parity</h3>
+        <p>Data <code>1011001</code> has four 1s → even parity bit = <code>0</code>.</p>
+      </div>
+
       <h2 id="Parity">Parity Bit</h2>
       <div class="concept-card">
         <p>A single bit added to make the total number of 1s even (even parity) or odd (odd parity). Detects single‑bit errors but cannot correct them.</p>

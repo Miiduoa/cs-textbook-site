@@ -70,6 +70,36 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>這個附錄讀法像「字元編碼小抄」：先看 <em>code point</em>（U+XXXX），再看編碼方式（UTF‑8/16/32）。看到 Hex 時先默念「這是位元組」。</p>
+        <ul>
+          <li><em>Encoding</em> 是「如何存」，<em>character set</em> 是「有哪些字」。</li>
+          <li>UTF‑8 可變長度，對 ASCII 相容。</li>
+          <li>遇到 emoji，UTF‑8 會是 4 bytes。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Explain Unicode code points and notation (U+XXXX).</li>
+          <li>Compare UTF‑8, UTF‑16, and UTF‑32.</li>
+          <li>Convert a character to UTF‑8 byte sequence.</li>
+          <li>Recognize why UTF‑8 dominates on the web.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">Unicode</span>, <span class="key-term">code point</span>, <span class="key-term">UTF‑8</span>, <span class="key-term">UTF‑16</span>, <span class="key-term">UTF‑32</span>, <span class="key-term">encoding</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: 漢 → UTF‑8</h3>
+        <p><code>漢</code> has code point <code>U+6F22</code> → UTF‑8 bytes <code>E6 BC A2</code>.</p>
+      </div>
+
       <h2 id="Overview">Overview</h2>
       <div class="concept-card">
         <p>Unicode is a universal character set that assigns a <strong>code point</strong> to each symbol, written as <code>U+XXXX</code>.</p>
@@ -92,6 +122,14 @@
           <button class="btn" onclick="calcUnicode()">Compute</button>
         </div>
         <div id="unicodeResult" class="result-box">U+6F22 | UTF‑8: E6 BC A2</div>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>下列哪一種編碼不能顯示中文？ (1) EBCDIC (2) Big5 (3) Unicode (4) CP950</li>
+        </ol>
+        <p class="exam-source">Source: <a href="https://master.get.com.tw/exam/Download.ashx?iP=101121&iDP=66428&iS=3086" target="_blank">東吳大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="PracticeSet">Practice Set</h2>

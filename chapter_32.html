@@ -70,6 +70,35 @@
     </div>
 
     <div class="content-sections">
+      <div class="reading-guide">
+        <h2>English Reading Guide (中文導讀)</h2>
+        <p>浮點數英文重點：<em>sign, exponent, mantissa</em>。先把三個欄位對應起來，再做轉換。</p>
+        <ul>
+          <li><em>Bias</em> 是指數位的偏移量。</li>
+          <li><em>Normalization</em> 要把小數點移到 1.x。</li>
+          <li>注意正負號與特殊值（0、∞、NaN）。</li>
+        </ul>
+      </div>
+
+      <div class="objectives">
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Describe IEEE‑754 single/double formats.</li>
+          <li>Convert decimal numbers to IEEE‑754.</li>
+          <li>Explain rounding and precision limits.</li>
+        </ul>
+      </div>
+
+      <div class="key-terms">
+        <h2>Key Terms</h2>
+        <p><span class="key-term">IEEE‑754</span>, <span class="key-term">mantissa</span>, <span class="key-term">exponent</span>, <span class="key-term">bias</span>, <span class="key-term">normalization</span></p>
+      </div>
+
+      <div class="worked-example">
+        <h3>Worked Example: 7.75</h3>
+        <p><code>7.75₁₀ = 111.11₂ = 1.1111₂ × 2²</code> → exponent = 127+2 = 129.</p>
+      </div>
+
       <h2 id="IEEE754">IEEE 754 Floating‑Point</h2>
       <div class="concept-card">
         <p>Floating‑point numbers use three fields: <strong>sign</strong>, <strong>exponent</strong>, <strong>mantissa</strong>.</p>
@@ -104,6 +133,14 @@
       <h2 id="Precision">Precision & Rounding</h2>
       <div class="concept-card">
         <p>Limited mantissa bits cause rounding errors. Example: 0.1 + 0.2 ≠ 0.3 exactly in binary floating‑point.</p>
+      </div>
+
+      <div class="exam-box">
+        <h2>Past Exam Questions (Selected)</h2>
+        <ol>
+          <li>將下列十進位數值轉換成 32 位元 IEEE‑754 單精度格式：(1) 7.75 (2) −0.375</li>
+        </ol>
+        <p class="exam-source">Source: <a href="https://master.get.com.tw/exam/Download.ashx?iP=100896&iDP=66513&iS=3086" target="_blank">國立臺北教育大學 114 計算機概論</a></p>
       </div>
 
       <h2 id="PracticeSet">Practice Set</h2>
